@@ -17,9 +17,11 @@ namespace cantina
             if (listBox1.SelectedItem != null && numericQuant.Value > 0)
             {
                 int quant = (int)numericQuant.Value;
+
                 Produto produtoSelecionado = (Produto)listBox1.SelectedItem;
-                Venda vendaFeita = (Venda) produtoSelecionado.
-                listBox2.Items.Add(new Venda(quant, produtoSelecionado);
+                Produto vendaFeita = new Produto(produtoSelecionado.Descricao, produtoSelecionado.Valor);
+                vendaFeita.Quantidade = (int)numericQuant.Value;
+                listBox2.Items.Add(vendaFeita);
                 total += produtoSelecionado.Valor * quant;
                 lblTotal.Text = $" TOTAL: R$ {total:F2}";
                 listBox1.SelectedIndex = -1;
@@ -45,11 +47,11 @@ namespace cantina
             if (listBox2.SelectedItem != null)
             {
                 int quant = (int)numericQuant.Value;
-                Venda produtoSelecionado = (Venda)listBox2.SelectedItem;
+                Produto produtoSelecionado = (Produto)listBox2.SelectedItem;
                 listBox2.Items.Remove(produtoSelecionado);
                 total -= produtoSelecionado.Valor * quant;
                 lblTotal.Text = $" TOTAL: R$ {total:F2}";
-
+                numericQuant.Value = 0;
 
 
             }
@@ -71,24 +73,24 @@ namespace cantina
         private void Form1_Load(object sender, EventArgs e)
         {
             listBox1.Items.Add(new Produto("Coxinha", 5.00));
-            listBox1.Items.Add(new Produto("Pastel", 6.00));
-            listBox1.Items.Add(new Produto("Refrigerante", 4.50));
-            listBox1.Items.Add(new Produto("Suco", 3.00));
-            listBox1.Items.Add(new Produto("Brigadeiro", 3.00));
-
+            listBox1.Items.Add(new Produto("Pastel de Carne", 6.00));
+            listBox1.Items.Add(new Produto("Pastel de Queijo", 5.50));
+            listBox1.Items.Add(new Produto("Refrigerante Lata", 4.50));
+            listBox1.Items.Add(new Produto("Suco Natural (300ml)", 3.00));
+            listBox1.Items.Add(new Produto("Pão de Queijo", 3.50));
+            listBox1.Items.Add(new Produto("Hambúrguer Simples", 8.00));
+            listBox1.Items.Add(new Produto("Hambúrguer com Queijo", 9.00));
+            listBox1.Items.Add(new Produto("X-tudo", 12.00));
+            listBox1.Items.Add(new Produto("Água Mineral (500ml)", 2.50));
 
         }
 
-        private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-        }
-
-
-
-        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
-        {
-
+            if (listBox1.SelectedItem != null)
+            {
+                numericQuant.Value = 1;
+            }
         }
     }
 }

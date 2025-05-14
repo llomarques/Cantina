@@ -11,7 +11,7 @@ namespace cantina
     {
         private string descricao;
         private double valor;
-        
+        private int quantidade = 0;
 
 
         public string Descricao
@@ -22,18 +22,26 @@ namespace cantina
         {
             get { return valor; }
         }
-      
+
+        public int Quantidade
+        {
+            set { quantidade = value; }
+            get { return quantidade; }  
+        }
+        public object listBox2 { get; internal set; }
 
         public Produto( string descricao, double valor)
         {
             
             this.descricao = descricao;
             this.valor = valor;
+            this.quantidade = 0;
 
         }
         public override string ToString()
-        {
-            return $" {descricao} - R$ {valor:F2}";
+        {    if (quantidade > 0) 
+                return $" {quantidade}x {descricao} - R$ {valor:F2}";
+        else return $"  {descricao} - R$ {valor:F2}"; 
         }
     }
 
