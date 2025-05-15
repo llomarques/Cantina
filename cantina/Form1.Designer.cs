@@ -114,11 +114,11 @@
             // 
             lblTotal.AutoSize = true;
             lblTotal.BackColor = Color.Transparent;
-            lblTotal.Font = new Font("Microsoft JhengHei", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTotal.ForeColor = Color.Black;
+            lblTotal.Font = new Font("Agrandir Semi Narrow", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTotal.ForeColor = Color.White;
             lblTotal.Location = new Point(29, 374);
             lblTotal.Name = "lblTotal";
-            lblTotal.Size = new Size(89, 26);
+            lblTotal.Size = new Size(82, 28);
             lblTotal.TabIndex = 7;
             lblTotal.Text = "TOTAL :";
             // 
@@ -182,6 +182,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(17, 25, 12);
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(993, 559);
             Controls.Add(label3);

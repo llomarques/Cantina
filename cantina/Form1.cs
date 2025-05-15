@@ -25,6 +25,7 @@ namespace cantina
                 total += produtoSelecionado.Valor * quant;
                 lblTotal.Text = $" TOTAL: R$ {total:F2}";
                 listBox1.SelectedIndex = -1;
+                numericQuant.Value = 0;
 
 
 
@@ -49,7 +50,7 @@ namespace cantina
                 int quant = (int)numericQuant.Value;
                 Produto produtoSelecionado = (Produto)listBox2.SelectedItem;
                 listBox2.Items.Remove(produtoSelecionado);
-                total -= produtoSelecionado.Valor * quant;
+                total -= produtoSelecionado.Valor * produtoSelecionado.Quantidade;
                 lblTotal.Text = $" TOTAL: R$ {total:F2}";
                 numericQuant.Value = 0;
 
