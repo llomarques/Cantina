@@ -93,5 +93,10 @@ namespace cantina
                 numericQuant.Value = 1;
             }
         }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

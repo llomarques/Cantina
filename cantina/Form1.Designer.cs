@@ -41,8 +41,18 @@
             numericQuant = new NumericUpDown();
             pictureBox1 = new PictureBox();
             label3 = new Label();
+            textBox1 = new TextBox();
+            label4 = new Label();
+            textBox2 = new TextBox();
+            label5 = new Label();
+            label6 = new Label();
+            numericUpDown1 = new NumericUpDown();
+            textBox3 = new TextBox();
+            label7 = new Label();
+            button2 = new Button();
             ((System.ComponentModel.ISupportInitialize)numericQuant).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -178,13 +188,104 @@
             label3.TabIndex = 13;
             label3.Text = "Quantidade";
             // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(740, 137);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(172, 23);
+            textBox1.TabIndex = 14;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Agrandir Semi Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.ForeColor = SystemColors.ControlLightLight;
+            label4.Location = new Point(670, 140);
+            label4.Name = "label4";
+            label4.Size = new Size(50, 20);
+            label4.TabIndex = 15;
+            label4.Text = "Nome";
+            // 
+            // textBox2
+            // 
+            textBox2.Location = new Point(741, 179);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(171, 23);
+            textBox2.TabIndex = 16;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Agrandir Semi Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label5.ForeColor = SystemColors.ButtonHighlight;
+            label5.Location = new Point(670, 182);
+            label5.Name = "label5";
+            label5.Size = new Size(65, 20);
+            label5.TabIndex = 17;
+            label5.Text = "Método";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Agrandir Semi Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label6.ForeColor = SystemColors.ButtonFace;
+            label6.Location = new Point(670, 225);
+            label6.Name = "label6";
+            label6.Size = new Size(45, 20);
+            label6.TabIndex = 19;
+            label6.Text = "Valor";
+            // 
+            // numericUpDown1
+            // 
+            numericUpDown1.Location = new Point(740, 222);
+            numericUpDown1.Name = "numericUpDown1";
+            numericUpDown1.Size = new Size(106, 23);
+            numericUpDown1.TabIndex = 20;
+            // 
+            // textBox3
+            // 
+            textBox3.Location = new Point(740, 260);
+            textBox3.Name = "textBox3";
+            textBox3.Size = new Size(107, 23);
+            textBox3.TabIndex = 21;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Agrandir Semi Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label7.ForeColor = SystemColors.ButtonHighlight;
+            label7.Location = new Point(670, 263);
+            label7.Name = "label7";
+            label7.Size = new Size(50, 20);
+            label7.TabIndex = 22;
+            label7.Text = "Troco";
+            label7.Click += label7_Click;
+            // 
+            // button2
+            // 
+            button2.Location = new Point(770, 334);
+            button2.Name = "button2";
+            button2.Size = new Size(142, 41);
+            button2.TabIndex = 23;
+            button2.Text = "Mandar para o balcão ";
+            button2.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(17, 25, 12);
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(993, 559);
+            ClientSize = new Size(965, 559);
+            Controls.Add(button2);
+            Controls.Add(label7);
+            Controls.Add(textBox3);
+            Controls.Add(numericUpDown1);
+            Controls.Add(label6);
+            Controls.Add(label5);
+            Controls.Add(textBox2);
+            Controls.Add(label4);
+            Controls.Add(textBox1);
             Controls.Add(label3);
             Controls.Add(pictureBox1);
             Controls.Add(numericQuant);
@@ -204,6 +305,7 @@
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)numericQuant).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -223,5 +325,14 @@
         private NumericUpDown numericQuant;
         private PictureBox pictureBox1;
         private Label label3;
+        private TextBox textBox1;
+        private Label label4;
+        private TextBox textBox2;
+        private Label label5;
+        private Label label6;
+        private NumericUpDown numericUpDown1;
+        private TextBox textBox3;
+        private Label label7;
+        private Button button2;
     }
 }
