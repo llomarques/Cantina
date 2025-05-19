@@ -1,3 +1,6 @@
+using System.Configuration;
+using System.Windows.Forms;
+
 namespace cantina
 {
     public partial class Form1 : Form
@@ -6,6 +9,7 @@ namespace cantina
         public Form1()
         {
             InitializeComponent();
+            GetButtonFinalizar();
         }
 
 
@@ -62,12 +66,24 @@ namespace cantina
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void buttonFinalizar_Click(object sender, EventArgs e)
         {
 
             MessageBox.Show($"Seu total é de : R$ {total:F2}");
             listBox2.Items.Clear();
             lblTotal.Text = $" TOTAL: R$ {total = 0}";
+
+
+            if (comboBox1.SelectedItem == null)
+            {
+                MessageBox.Show("Selecione o método de pagamento para prosseguir!");
+            }
+            else
+            {
+                comboBox1.SelectedIndex = -1;
+                textBox1 = null; 
+            }
+
 
         }
 
@@ -84,6 +100,10 @@ namespace cantina
             listBox1.Items.Add(new Produto("X-tudo", 12.00));
             listBox1.Items.Add(new Produto("Água Mineral (500ml)", 2.50));
 
+            comboBox1.Items.Add("Pix");
+            comboBox1.Items.Add("Cartão crédito");
+            comboBox1.Items.Add("Cartão débito");
+            comboBox1.Items.Add("Dinheiro");
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -98,5 +118,45 @@ namespace cantina
         {
 
         }
+
+        private void domainUpDown1_SelectedItemChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            if (comboBox1.SelectedIndex == 3)
+            {
+                label6.Visible = true;
+                textBox2.Visible = true;
+                label7.Visible = true;
+                textBox3.Visible = true;
+
+                if (double.TryParse(textBox2.Text, out double valorTroco))
+                {
+                    if (valorTroco >= total)
+                    {
+                        double troco = valorTroco - total;
+                        textBox3.Text = $"R$ {troco}";
+                    }
+                }
+
+            }
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            if (comboBox1.SelectedIndex == 3)
+            {
+                label6.Visible = true;
+                textBox2.Visible = true;
+                label7.Visible = true;
+                textBox3.Visible = true;
+            }
+
+            }
     }
 }

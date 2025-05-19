@@ -20,6 +20,11 @@
             base.Dispose(disposing);
         }
 
+        private Button GetButtonFinalizar()
+        {
+            return buttonFinalizar;
+        }
+
         #region Windows Form Designer generated code
 
         /// <summary>
@@ -35,7 +40,7 @@
             listBox2 = new ListBox();
             label2 = new Label();
             lblTotal = new Label();
-            button1 = new Button();
+            buttonFinalizar = new Button();
             dateTimePicker1 = new DateTimePicker();
             dateTimePicker2 = new DateTimePicker();
             numericQuant = new NumericUpDown();
@@ -43,16 +48,15 @@
             label3 = new Label();
             textBox1 = new TextBox();
             label4 = new Label();
-            textBox2 = new TextBox();
             label5 = new Label();
             label6 = new Label();
-            numericUpDown1 = new NumericUpDown();
             textBox3 = new TextBox();
             label7 = new Label();
             button2 = new Button();
+            textBox2 = new TextBox();
+            comboBox1 = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)numericQuant).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -60,6 +64,7 @@
             label1.AutoSize = true;
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Microsoft JhengHei", 11.25F);
+            label1.ForeColor = SystemColors.ButtonHighlight;
             label1.Location = new Point(29, 115);
             label1.Name = "label1";
             label1.Size = new Size(130, 19);
@@ -114,6 +119,7 @@
             label2.AutoSize = true;
             label2.BackColor = Color.Transparent;
             label2.Font = new Font("Microsoft JhengHei", 11.25F);
+            label2.ForeColor = SystemColors.ButtonHighlight;
             label2.Location = new Point(298, 115);
             label2.Name = "label2";
             label2.Size = new Size(70, 19);
@@ -132,17 +138,17 @@
             lblTotal.TabIndex = 7;
             lblTotal.Text = "TOTAL :";
             // 
-            // button1
+            // buttonFinalizar
             // 
-            button1.BackColor = Color.Transparent;
-            button1.Font = new Font("Microsoft JhengHei", 11.25F);
-            button1.Location = new Point(307, 450);
-            button1.Name = "button1";
-            button1.Size = new Size(202, 48);
-            button1.TabIndex = 6;
-            button1.Text = "Finalizar pedido";
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click;
+            buttonFinalizar.BackColor = Color.Transparent;
+            buttonFinalizar.Font = new Font("Microsoft JhengHei", 11.25F);
+            buttonFinalizar.Location = new Point(307, 450);
+            buttonFinalizar.Name = "buttonFinalizar";
+            buttonFinalizar.Size = new Size(202, 48);
+            buttonFinalizar.TabIndex = 6;
+            buttonFinalizar.Text = "Finalizar pedido";
+            buttonFinalizar.UseVisualStyleBackColor = false;
+            buttonFinalizar.Click += buttonFinalizar_Click;
             // 
             // dateTimePicker1
             // 
@@ -182,6 +188,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 11F);
+            label3.ForeColor = SystemColors.ButtonFace;
             label3.Location = new Point(29, 220);
             label3.Name = "label3";
             label3.Size = new Size(87, 20);
@@ -206,13 +213,6 @@
             label4.TabIndex = 15;
             label4.Text = "Nome";
             // 
-            // textBox2
-            // 
-            textBox2.Location = new Point(741, 179);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(171, 23);
-            textBox2.TabIndex = 16;
-            // 
             // label5
             // 
             label5.AutoSize = true;
@@ -234,20 +234,16 @@
             label6.Size = new Size(45, 20);
             label6.TabIndex = 19;
             label6.Text = "Valor";
-            // 
-            // numericUpDown1
-            // 
-            numericUpDown1.Location = new Point(740, 222);
-            numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new Size(106, 23);
-            numericUpDown1.TabIndex = 20;
+            label6.Visible = false;
             // 
             // textBox3
             // 
             textBox3.Location = new Point(740, 260);
             textBox3.Name = "textBox3";
+            textBox3.ReadOnly = true;
             textBox3.Size = new Size(107, 23);
             textBox3.TabIndex = 21;
+            textBox3.Visible = false;
             // 
             // label7
             // 
@@ -259,16 +255,35 @@
             label7.Size = new Size(50, 20);
             label7.TabIndex = 22;
             label7.Text = "Troco";
+            label7.Visible = false;
             label7.Click += label7_Click;
             // 
             // button2
             // 
-            button2.Location = new Point(770, 334);
+            button2.Location = new Point(770, 336);
             button2.Name = "button2";
             button2.Size = new Size(142, 41);
             button2.TabIndex = 23;
             button2.Text = "Mandar para o balcão ";
             button2.UseVisualStyleBackColor = true;
+            // 
+            // textBox2
+            // 
+            textBox2.Location = new Point(737, 217);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(110, 23);
+            textBox2.TabIndex = 25;
+            textBox2.Visible = false;
+            textBox2.TextChanged += textBox2_TextChanged;
+            // 
+            // comboBox1
+            // 
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new Point(740, 183);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(172, 23);
+            comboBox1.TabIndex = 26;
+            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
             // Form1
             // 
@@ -277,13 +292,13 @@
             BackColor = Color.FromArgb(17, 25, 12);
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(965, 559);
+            Controls.Add(comboBox1);
+            Controls.Add(textBox2);
             Controls.Add(button2);
             Controls.Add(label7);
             Controls.Add(textBox3);
-            Controls.Add(numericUpDown1);
             Controls.Add(label6);
             Controls.Add(label5);
-            Controls.Add(textBox2);
             Controls.Add(label4);
             Controls.Add(textBox1);
             Controls.Add(label3);
@@ -292,7 +307,7 @@
             Controls.Add(dateTimePicker2);
             Controls.Add(dateTimePicker1);
             Controls.Add(lblTotal);
-            Controls.Add(button1);
+            Controls.Add(buttonFinalizar);
             Controls.Add(label2);
             Controls.Add(listBox2);
             Controls.Add(btnRemover);
@@ -305,7 +320,6 @@
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)numericQuant).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -319,7 +333,7 @@
         private ListBox listBox2;
         private Label label2;
         private Label lblTotal;
-        private Button button1;
+        private Button buttonFinalizar;
         private DateTimePicker dateTimePicker1;
         private DateTimePicker dateTimePicker2;
         private NumericUpDown numericQuant;
@@ -327,12 +341,12 @@
         private Label label3;
         private TextBox textBox1;
         private Label label4;
-        private TextBox textBox2;
         private Label label5;
         private Label label6;
-        private NumericUpDown numericUpDown1;
         private TextBox textBox3;
         private Label label7;
         private Button button2;
+        private TextBox textBox2;
+        private ComboBox comboBox1;
     }
 }
