@@ -1,4 +1,5 @@
 using System.Configuration;
+using System.Diagnostics.CodeAnalysis;
 using System.Windows.Forms;
 
 namespace cantina
@@ -67,23 +68,34 @@ namespace cantina
         }
 
         private void buttonFinalizar_Click(object sender, EventArgs e)
-        {
-
-            MessageBox.Show($"Seu total é de : R$ {total:F2}");
-            listBox2.Items.Clear();
-            lblTotal.Text = $" TOTAL: R$ {total = 0}";
-
-
-            if (comboBox1.SelectedItem == null)
-            {
-                MessageBox.Show("Selecione o método de pagamento para prosseguir!");
-            }
-            else
+        {   
+                double.TryParse(textBox2.Text, out double valorTroco);
+            if (textBox1.Text.Length != 0 && textBox2.Text.Length != 0)
             {
                 comboBox1.SelectedIndex = -1;
-                textBox1 = null; 
+                MessageBox.Show($"Dados do pedido: nome do cliente:{textBox1}\n\n" +
+                    $"Método de pagamento: {comboBox1.SelectedItem}\n\n" +
+                    $"Seu total é de : R$ {total:F2}");
+                
+                listBox2.Items.Clear();
+                lblTotal.Text = $" TOTAL: R$ {total = 0}";
+                textBox2.Clear();
+                textBox1.Clear();
+                textBox3.Clear();
+            }
+            else if (comboBox1.SelectedIndex==3 && valorTroco < total)
+            {
+               MessageBox.Show("Valor insuficiente");
             }
 
+
+            else if (comboBox1.SelectedItem == null)
+            {
+                MessageBox.Show("Selecione o método de pagamento!");
+            }
+            
+           
+           
 
         }
 
@@ -104,6 +116,9 @@ namespace cantina
             comboBox1.Items.Add("Cartão crédito");
             comboBox1.Items.Add("Cartão débito");
             comboBox1.Items.Add("Dinheiro");
+
+            buttonFinalizar.FlatStyle = FlatStyle.Flat;
+            buttonFinalizar.FlatAppearance.BorderSize = 0;
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -140,10 +155,11 @@ namespace cantina
                         double troco = valorTroco - total;
                         textBox3.Text = $"R$ {troco}";
                     }
+
                 }
 
             }
-
+           
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -156,7 +172,19 @@ namespace cantina
                 label7.Visible = true;
                 textBox3.Visible = true;
             }
-
+            else
+            {
+                label6.Visible = false; 
+                textBox2.Visible = false;
+                label7.Visible = false;
+                textBox3.Visible = false;
             }
+
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

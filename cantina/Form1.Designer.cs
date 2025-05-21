@@ -63,11 +63,11 @@
             // 
             label1.AutoSize = true;
             label1.BackColor = Color.Transparent;
-            label1.Font = new Font("Microsoft JhengHei", 11.25F);
+            label1.Font = new Font("Agrandir Semi Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = SystemColors.ButtonHighlight;
             label1.Location = new Point(29, 115);
             label1.Name = "label1";
-            label1.Size = new Size(130, 19);
+            label1.Size = new Size(133, 20);
             label1.TabIndex = 0;
             label1.Text = "Produtos Cantina";
             // 
@@ -118,11 +118,11 @@
             // 
             label2.AutoSize = true;
             label2.BackColor = Color.Transparent;
-            label2.Font = new Font("Microsoft JhengHei", 11.25F);
+            label2.Font = new Font("Agrandir Semi Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.ForeColor = SystemColors.ButtonHighlight;
             label2.Location = new Point(298, 115);
             label2.Name = "label2";
-            label2.Size = new Size(70, 19);
+            label2.Size = new Size(71, 20);
             label2.TabIndex = 5;
             label2.Text = "Carrinho";
             // 
@@ -131,7 +131,7 @@
             lblTotal.AutoSize = true;
             lblTotal.BackColor = Color.Transparent;
             lblTotal.Font = new Font("Agrandir Semi Narrow", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTotal.ForeColor = Color.White;
+            lblTotal.ForeColor = Color.FromArgb(243, 241, 238);
             lblTotal.Location = new Point(29, 374);
             lblTotal.Name = "lblTotal";
             lblTotal.Size = new Size(82, 28);
@@ -140,8 +140,9 @@
             // 
             // buttonFinalizar
             // 
-            buttonFinalizar.BackColor = Color.Transparent;
-            buttonFinalizar.Font = new Font("Microsoft JhengHei", 11.25F);
+            buttonFinalizar.BackColor = Color.FromArgb(202, 196, 183);
+            buttonFinalizar.Font = new Font("Agrandir Semi Narrow", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonFinalizar.ForeColor = Color.FromArgb(230, 255, 0);
             buttonFinalizar.Location = new Point(307, 450);
             buttonFinalizar.Name = "buttonFinalizar";
             buttonFinalizar.Size = new Size(202, 48);
@@ -153,7 +154,7 @@
             // dateTimePicker1
             // 
             dateTimePicker1.Format = DateTimePickerFormat.Short;
-            dateTimePicker1.Location = new Point(12, 450);
+            dateTimePicker1.Location = new Point(29, 435);
             dateTimePicker1.Name = "dateTimePicker1";
             dateTimePicker1.Size = new Size(79, 23);
             dateTimePicker1.TabIndex = 8;
@@ -161,7 +162,7 @@
             // dateTimePicker2
             // 
             dateTimePicker2.Format = DateTimePickerFormat.Time;
-            dateTimePicker2.Location = new Point(12, 479);
+            dateTimePicker2.Location = new Point(29, 475);
             dateTimePicker2.Name = "dateTimePicker2";
             dateTimePicker2.Size = new Size(79, 23);
             dateTimePicker2.TabIndex = 9;
@@ -187,11 +188,11 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 11F);
+            label3.Font = new Font("Agrandir Semi Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.ForeColor = SystemColors.ButtonFace;
             label3.Location = new Point(29, 220);
             label3.Name = "label3";
-            label3.Size = new Size(87, 20);
+            label3.Size = new Size(90, 20);
             label3.TabIndex = 13;
             label3.Text = "Quantidade";
             // 
@@ -244,6 +245,7 @@
             textBox3.Size = new Size(107, 23);
             textBox3.TabIndex = 21;
             textBox3.Visible = false;
+            textBox3.TextChanged += textBox3_TextChanged;
             // 
             // label7
             // 
@@ -269,9 +271,9 @@
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(737, 217);
+            textBox2.Location = new Point(740, 226);
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(110, 23);
+            textBox2.Size = new Size(107, 23);
             textBox2.TabIndex = 25;
             textBox2.Visible = false;
             textBox2.TextChanged += textBox2_TextChanged;
