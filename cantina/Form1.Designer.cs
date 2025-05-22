@@ -33,6 +33,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             label1 = new Label();
             listBox1 = new ListBox();
             btnAdicionar = new Button();
@@ -41,7 +42,6 @@
             label2 = new Label();
             lblTotal = new Label();
             buttonFinalizar = new Button();
-            dateTimePicker1 = new DateTimePicker();
             dateTimePicker2 = new DateTimePicker();
             numericQuant = new NumericUpDown();
             pictureBox1 = new PictureBox();
@@ -64,7 +64,7 @@
             label1.AutoSize = true;
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Agrandir Semi Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = SystemColors.ButtonHighlight;
+            label1.ForeColor = Color.DarkGray;
             label1.Location = new Point(29, 115);
             label1.Name = "label1";
             label1.Size = new Size(133, 20);
@@ -73,7 +73,9 @@
             // 
             // listBox1
             // 
+            listBox1.BackColor = Color.FromArgb(202, 196, 183);
             listBox1.Font = new Font("Microsoft JhengHei", 11.25F);
+            listBox1.ForeColor = Color.Black;
             listBox1.FormattingEnabled = true;
             listBox1.ItemHeight = 19;
             listBox1.Location = new Point(29, 137);
@@ -84,29 +86,35 @@
             // 
             // btnAdicionar
             // 
-            btnAdicionar.Font = new Font("Microsoft JhengHei", 11.25F);
+            btnAdicionar.BackColor = Color.FromArgb(17, 25, 12);
+            btnAdicionar.Font = new Font("Inter Medium", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAdicionar.ForeColor = Color.FromArgb(230, 255, 0);
             btnAdicionar.Location = new Point(29, 291);
             btnAdicionar.Name = "btnAdicionar";
-            btnAdicionar.Size = new Size(103, 55);
+            btnAdicionar.Size = new Size(104, 36);
             btnAdicionar.TabIndex = 2;
             btnAdicionar.Text = "Adicionar >";
-            btnAdicionar.UseVisualStyleBackColor = true;
+            btnAdicionar.UseVisualStyleBackColor = false;
             btnAdicionar.Click += btnAdicionar_Click;
             // 
             // btnRemover
             // 
-            btnRemover.Font = new Font("Microsoft JhengHei", 11.25F);
-            btnRemover.Location = new Point(406, 291);
+            btnRemover.BackColor = Color.FromArgb(17, 25, 12);
+            btnRemover.Font = new Font("Inter Medium", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnRemover.ForeColor = Color.FromArgb(230, 255, 0);
+            btnRemover.Location = new Point(402, 291);
             btnRemover.Name = "btnRemover";
-            btnRemover.Size = new Size(103, 55);
+            btnRemover.Size = new Size(107, 36);
             btnRemover.TabIndex = 3;
             btnRemover.Text = "< Remover";
-            btnRemover.UseVisualStyleBackColor = true;
+            btnRemover.UseVisualStyleBackColor = false;
             btnRemover.Click += btnRemover_Click;
             // 
             // listBox2
             // 
+            listBox2.BackColor = Color.FromArgb(202, 196, 183);
             listBox2.Font = new Font("Microsoft JhengHei", 11.25F);
+            listBox2.ForeColor = Color.Black;
             listBox2.FormattingEnabled = true;
             listBox2.ItemHeight = 19;
             listBox2.Location = new Point(298, 137);
@@ -119,7 +127,7 @@
             label2.AutoSize = true;
             label2.BackColor = Color.Transparent;
             label2.Font = new Font("Agrandir Semi Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.ForeColor = SystemColors.ButtonHighlight;
+            label2.ForeColor = Color.DarkGray;
             label2.Location = new Point(298, 115);
             label2.Name = "label2";
             label2.Size = new Size(71, 20);
@@ -131,7 +139,7 @@
             lblTotal.AutoSize = true;
             lblTotal.BackColor = Color.Transparent;
             lblTotal.Font = new Font("Agrandir Semi Narrow", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTotal.ForeColor = Color.FromArgb(243, 241, 238);
+            lblTotal.ForeColor = Color.Black;
             lblTotal.Location = new Point(29, 374);
             lblTotal.Name = "lblTotal";
             lblTotal.Size = new Size(82, 28);
@@ -140,29 +148,21 @@
             // 
             // buttonFinalizar
             // 
-            buttonFinalizar.BackColor = Color.FromArgb(202, 196, 183);
-            buttonFinalizar.Font = new Font("Agrandir Semi Narrow", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonFinalizar.BackColor = Color.FromArgb(17, 25, 12);
+            buttonFinalizar.Font = new Font("Inter SemiBold", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonFinalizar.ForeColor = Color.FromArgb(230, 255, 0);
-            buttonFinalizar.Location = new Point(307, 450);
+            buttonFinalizar.Location = new Point(344, 462);
             buttonFinalizar.Name = "buttonFinalizar";
-            buttonFinalizar.Size = new Size(202, 48);
+            buttonFinalizar.Size = new Size(165, 36);
             buttonFinalizar.TabIndex = 6;
             buttonFinalizar.Text = "Finalizar pedido";
             buttonFinalizar.UseVisualStyleBackColor = false;
             buttonFinalizar.Click += buttonFinalizar_Click;
             // 
-            // dateTimePicker1
-            // 
-            dateTimePicker1.Format = DateTimePickerFormat.Short;
-            dateTimePicker1.Location = new Point(29, 435);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(79, 23);
-            dateTimePicker1.TabIndex = 8;
-            // 
             // dateTimePicker2
             // 
             dateTimePicker2.Format = DateTimePickerFormat.Time;
-            dateTimePicker2.Location = new Point(29, 475);
+            dateTimePicker2.Location = new Point(430, 504);
             dateTimePicker2.Name = "dateTimePicker2";
             dateTimePicker2.Size = new Size(79, 23);
             dateTimePicker2.TabIndex = 9;
@@ -170,6 +170,7 @@
             // 
             // numericQuant
             // 
+            numericQuant.BackColor = Color.DarkGray;
             numericQuant.Location = new Point(29, 243);
             numericQuant.Name = "numericQuant";
             numericQuant.Size = new Size(104, 23);
@@ -177,10 +178,10 @@
             // 
             // pictureBox1
             // 
-            pictureBox1.Image = Properties.Resources.logo;
-            pictureBox1.Location = new Point(29, 29);
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(29, 23);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(110, 57);
+            pictureBox1.Size = new Size(121, 64);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 12;
             pictureBox1.TabStop = false;
@@ -198,6 +199,7 @@
             // 
             // textBox1
             // 
+            textBox1.BackColor = Color.FromArgb(202, 193, 183);
             textBox1.Location = new Point(740, 137);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(172, 23);
@@ -207,7 +209,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Agrandir Semi Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.ForeColor = SystemColors.ControlLightLight;
+            label4.ForeColor = Color.DarkGray;
             label4.Location = new Point(670, 140);
             label4.Name = "label4";
             label4.Size = new Size(50, 20);
@@ -218,7 +220,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Agrandir Semi Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.ForeColor = SystemColors.ButtonHighlight;
+            label5.ForeColor = Color.DarkGray;
             label5.Location = new Point(670, 182);
             label5.Name = "label5";
             label5.Size = new Size(65, 20);
@@ -229,7 +231,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Agrandir Semi Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label6.ForeColor = SystemColors.ButtonFace;
+            label6.ForeColor = Color.DarkGray;
             label6.Location = new Point(670, 225);
             label6.Name = "label6";
             label6.Size = new Size(45, 20);
@@ -239,6 +241,8 @@
             // 
             // textBox3
             // 
+            textBox3.BackColor = Color.Gray;
+            textBox3.ForeColor = Color.White;
             textBox3.Location = new Point(740, 260);
             textBox3.Name = "textBox3";
             textBox3.ReadOnly = true;
@@ -251,7 +255,7 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Agrandir Semi Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label7.ForeColor = SystemColors.ButtonHighlight;
+            label7.ForeColor = Color.DarkGray;
             label7.Location = new Point(670, 263);
             label7.Name = "label7";
             label7.Size = new Size(50, 20);
@@ -262,15 +266,19 @@
             // 
             // button2
             // 
-            button2.Location = new Point(770, 336);
+            button2.BackColor = Color.FromArgb(17, 25, 12);
+            button2.Font = new Font("Inter Medium", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button2.ForeColor = Color.FromArgb(230, 255, 0);
+            button2.Location = new Point(740, 336);
             button2.Name = "button2";
-            button2.Size = new Size(142, 41);
+            button2.Size = new Size(201, 35);
             button2.TabIndex = 23;
             button2.Text = "Mandar para o balcão ";
-            button2.UseVisualStyleBackColor = true;
+            button2.UseVisualStyleBackColor = false;
             // 
             // textBox2
             // 
+            textBox2.BackColor = Color.FromArgb(202, 196, 183);
             textBox2.Location = new Point(740, 226);
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(107, 23);
@@ -280,6 +288,7 @@
             // 
             // comboBox1
             // 
+            comboBox1.BackColor = Color.FromArgb(202, 196, 183);
             comboBox1.FormattingEnabled = true;
             comboBox1.Location = new Point(740, 183);
             comboBox1.Name = "comboBox1";
@@ -291,7 +300,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(17, 25, 12);
+            BackColor = Color.FromArgb(243, 241, 238);
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(965, 559);
             Controls.Add(comboBox1);
@@ -307,7 +316,6 @@
             Controls.Add(pictureBox1);
             Controls.Add(numericQuant);
             Controls.Add(dateTimePicker2);
-            Controls.Add(dateTimePicker1);
             Controls.Add(lblTotal);
             Controls.Add(buttonFinalizar);
             Controls.Add(label2);
@@ -336,7 +344,6 @@
         private Label label2;
         private Label lblTotal;
         private Button buttonFinalizar;
-        private DateTimePicker dateTimePicker1;
         private DateTimePicker dateTimePicker2;
         private NumericUpDown numericQuant;
         private PictureBox pictureBox1;

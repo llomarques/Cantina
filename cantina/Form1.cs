@@ -1,6 +1,7 @@
 using System.Configuration;
 using System.Diagnostics.CodeAnalysis;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace cantina
 {
@@ -68,25 +69,39 @@ namespace cantina
         }
 
         private void buttonFinalizar_Click(object sender, EventArgs e)
-        {   
+        {
+
+            if (comboBox1.SelectedIndex == 3)
+            {
                 double.TryParse(textBox2.Text, out double valorTroco);
-            if (textBox1.Text.Length != 0 && textBox2.Text.Length != 0)
-            {
-                comboBox1.SelectedIndex = -1;
-                MessageBox.Show($"Dados do pedido: nome do cliente:{textBox1}\n\n" +
-                    $"Método de pagamento: {comboBox1.SelectedItem}\n\n" +
-                    $"Seu total é de : R$ {total:F2}");
-                
-                listBox2.Items.Clear();
-                lblTotal.Text = $" TOTAL: R$ {total = 0}";
-                textBox2.Clear();
-                textBox1.Clear();
-                textBox3.Clear();
+
+                if (valorTroco >= total)
+                {
+                    double troco = valorTroco - total;
+                    textBox3.Text = $"R$ {troco}";
+                }
+               while(valorTroco < total)
+                {
+                    MessageBox.Show("Valor insuficiente");
+                    break;
+                }
+
+                if (textBox1 != null)
+                {
+
+                    comboBox1.SelectedIndex = -1;
+                    MessageBox.Show($"Dados do pedido: nome do cliente:{textBox1}\n\n" +
+                        $"Método de pagamento: {comboBox1.SelectedItem}\n\n" +
+                        $"Seu total é de : R$ {total:F2}");
+
+                    listBox2.Items.Clear();
+                    lblTotal.Text = $" TOTAL: R$ {total = 0}";
+                    textBox2.Clear();
+                    textBox1.Clear();
+                    textBox3.Clear();
+                }
             }
-            else if (comboBox1.SelectedIndex==3 && valorTroco < total)
-            {
-               MessageBox.Show("Valor insuficiente");
-            }
+
 
 
             else if (comboBox1.SelectedItem == null)
@@ -118,7 +133,16 @@ namespace cantina
             comboBox1.Items.Add("Dinheiro");
 
             buttonFinalizar.FlatStyle = FlatStyle.Flat;
-            buttonFinalizar.FlatAppearance.BorderSize = 0;
+            buttonFinalizar.FlatAppearance.BorderSize = 3;
+            btnAdicionar.FlatStyle = FlatStyle.Flat;
+            btnAdicionar.FlatAppearance.BorderSize = 3;
+            btnRemover.FlatStyle = FlatStyle.Flat;
+            btnRemover.FlatAppearance.BorderSize = 3;
+            button2.FlatStyle = FlatStyle.Flat;
+            button2.FlatAppearance.BorderSize = 3;
+
+            
+
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
