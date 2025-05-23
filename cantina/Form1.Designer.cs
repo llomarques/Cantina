@@ -55,6 +55,7 @@
             button2 = new Button();
             textBox2 = new TextBox();
             comboBox1 = new ComboBox();
+            checkBox1 = new CheckBox();
             ((System.ComponentModel.ISupportInitialize)numericQuant).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -167,6 +168,7 @@
             dateTimePicker2.Size = new Size(79, 23);
             dateTimePicker2.TabIndex = 9;
             dateTimePicker2.Value = new DateTime(2025, 5, 12, 9, 0, 52, 0);
+            dateTimePicker2.ValueChanged += dateTimePicker2_ValueChanged;
             // 
             // numericQuant
             // 
@@ -296,6 +298,16 @@
             comboBox1.TabIndex = 26;
             comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
+            // checkBox1
+            // 
+            checkBox1.AutoSize = true;
+            checkBox1.Location = new Point(430, 233);
+            checkBox1.Name = "checkBox1";
+            checkBox1.Size = new Size(66, 19);
+            checkBox1.TabIndex = 27;
+            checkBox1.Text = "Viagem";
+            checkBox1.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -303,6 +315,7 @@
             BackColor = Color.FromArgb(243, 241, 238);
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(965, 559);
+            Controls.Add(checkBox1);
             Controls.Add(comboBox1);
             Controls.Add(textBox2);
             Controls.Add(button2);
@@ -357,5 +370,6 @@
         private Button button2;
         private TextBox textBox2;
         private ComboBox comboBox1;
+        private CheckBox checkBox1;
     }
 }

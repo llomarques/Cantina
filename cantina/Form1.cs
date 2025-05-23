@@ -7,7 +7,25 @@ namespace cantina
 {
     public partial class Form1 : Form
     {
+        List <Produto> extrato = new List <Produto> ();
+        string metodo;
+        public void dinheiro()
+        {
+          
+                double.TryParse(textBox2.Text, out double valorTroco);
 
+                if (valorTroco >= total)
+                {
+                    double troco = valorTroco - total;
+                    textBox3.Text = $"R$ {troco}";
+                }
+                if (valorTroco < total)
+                {
+                    MessageBox.Show("Valor insuficiente");
+                    
+            }
+           
+        }
         public Form1()
         {
             InitializeComponent();
@@ -28,6 +46,7 @@ namespace cantina
                 Produto vendaFeita = new Produto(produtoSelecionado.Descricao, produtoSelecionado.Valor);
                 vendaFeita.Quantidade = (int)numericQuant.Value;
                 listBox2.Items.Add(vendaFeita);
+                extrato.Add(vendaFeita);
                 total += produtoSelecionado.Valor * quant;
                 lblTotal.Text = $" TOTAL: R$ {total:F2}";
                 listBox1.SelectedIndex = -1;
@@ -56,6 +75,7 @@ namespace cantina
                 int quant = (int)numericQuant.Value;
                 Produto produtoSelecionado = (Produto)listBox2.SelectedItem;
                 listBox2.Items.Remove(produtoSelecionado);
+                extrato.Remove(produtoSelecionado);
                 total -= produtoSelecionado.Valor * produtoSelecionado.Quantidade;
                 lblTotal.Text = $" TOTAL: R$ {total:F2}";
                 numericQuant.Value = 0;
@@ -70,49 +90,52 @@ namespace cantina
 
         private void buttonFinalizar_Click(object sender, EventArgs e)
         {
-
+            DateTime hora = DateTime.Now;
+            string viagem = string.Empty;
+            if (checkBox1.Checked)
+            {
+                viagem = "Para viagem";
+            }
+            else
+            {
+                viagem = "Para comer aqui";
+            }
             if (comboBox1.SelectedIndex == 3)
             {
-                double.TryParse(textBox2.Text, out double valorTroco);
+                dinheiro();
+            }
 
-                if (valorTroco >= total)
+                if (textBox1 == null || comboBox1.SelectedIndex == -1)
                 {
-                    double troco = valorTroco - total;
-                    textBox3.Text = $"R$ {troco}";
-                }
-               while(valorTroco < total)
-                {
-                    MessageBox.Show("Valor insuficiente");
-                    break;
+                    MessageBox.Show("Informação faltando!");
+                    
                 }
 
-                if (textBox1 != null)
+                if (textBox1 != null && comboBox1.SelectedIndex >= -1 && metodo != null && textBox3!=null && textBox2!=null)
                 {
-
-                    comboBox1.SelectedIndex = -1;
-                    MessageBox.Show($"Dados do pedido: nome do cliente:{textBox1}\n\n" +
-                        $"Método de pagamento: {comboBox1.SelectedItem}\n\n" +
-                        $"Seu total é de : R$ {total:F2}");
+                    
+                    string extratop = string.Join("\n", extrato);
+                    MessageBox.Show($"Dados do pedido:\n\n" +
+                    $" Nome do cliente:{textBox1.Text}\n\n" +
+                    $" Produtos: {extratop}\n\n" +
+                    $"Método de pagamento: {comboBox1.SelectedItem}\n\n" +
+                    $"Seu total é de : R$ {total:F2}\n\n" +
+                    $"Data e hora: {hora}\n\n " + 
+                    $" Viagem: {viagem}");
 
                     listBox2.Items.Clear();
                     lblTotal.Text = $" TOTAL: R$ {total = 0}";
                     textBox2.Clear();
                     textBox1.Clear();
                     textBox3.Clear();
+                    extrato.Clear();
+                    checkBox1.Checked= false;
+                    comboBox1.SelectedIndex = -1;
+                   
                 }
+                
             }
-
-
-
-            else if (comboBox1.SelectedItem == null)
-            {
-                MessageBox.Show("Selecione o método de pagamento!");
-            }
-            
-           
-           
-
-        }
+        
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -141,7 +164,7 @@ namespace cantina
             button2.FlatStyle = FlatStyle.Flat;
             button2.FlatAppearance.BorderSize = 3;
 
-            
+
 
         }
 
@@ -167,10 +190,7 @@ namespace cantina
         {
             if (comboBox1.SelectedIndex == 3)
             {
-                label6.Visible = true;
-                textBox2.Visible = true;
-                label7.Visible = true;
-                textBox3.Visible = true;
+                
 
                 if (double.TryParse(textBox2.Text, out double valorTroco))
                 {
@@ -183,30 +203,44 @@ namespace cantina
                 }
 
             }
-           
+
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-            if (comboBox1.SelectedIndex == 3)
+            bool mostrarTroco = false;
+            if (comboBox1.SelectedIndex == 0)
             {
-                label6.Visible = true;
-                textBox2.Visible = true;
-                label7.Visible = true;
-                textBox3.Visible = true;
+                metodo = "pix";
+                mostrarTroco = false ;
             }
-            else
+            else if (comboBox1.SelectedIndex == 1) 
             {
-                label6.Visible = false; 
-                textBox2.Visible = false;
-                label7.Visible = false;
-                textBox3.Visible = false;
+                metodo = "Cartão crédito";
+                mostrarTroco = false ;
             }
+            else if (comboBox1.SelectedIndex == 2)
+            {
+                metodo = "Cartão débito";
+                mostrarTroco = false ;
+            }
+            else if (comboBox1.SelectedIndex == 3)
+            {
+                mostrarTroco = true;
+            }
+            label6.Visible = mostrarTroco;
+            textBox2.Visible = mostrarTroco;
+            label7.Visible = mostrarTroco;
+            textBox3.Visible = mostrarTroco;
 
         }
 
         private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
         {
 
         }
