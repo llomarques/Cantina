@@ -7,25 +7,25 @@ namespace cantina
 {
     public partial class Form1 : Form
     {
-        List <Produto> extrato = new List <Produto> ();
+        List<Produto> extrato = new List<Produto>();
         string metodo;
         public bool dinheiro()
         {
-          
-                double.TryParse(textBox2.Text, out double valorTroco);
 
-                if (valorTroco >= total)
-                {
-                    double troco = valorTroco - total;
-                    textBox3.Text = $"R$ {troco}";
-                return true ;
-                }
-                else
-                {
-                    MessageBox.Show("Valor insuficiente");
-                    return false ;
+            double.TryParse(textBox2.Text, out double valorTroco);
+
+            if (valorTroco >= total)
+            {
+                double troco = valorTroco - total;
+                textBox3.Text = $"R$ {troco}";
+                return true;
             }
-           
+            else
+            {
+                MessageBox.Show("Valor insuficiente");
+                return false;
+            }
+
         }
         public Form1()
         {
@@ -109,37 +109,37 @@ namespace cantina
                 }
             }
 
-                if (textBox1 == null || comboBox1.SelectedItem == null || textBox2 == null)
-                {
-                    MessageBox.Show("Informação faltando!");
-                    
-                }
+            if (textBox1 == null || comboBox1.SelectedItem == null || textBox2 == null)
+            {
+                MessageBox.Show("Informação faltando!");
 
-             else 
-                {
-                    
-                    string extratop = string.Join("\n", extrato);
-                    MessageBox.Show($"Dados do pedido:\n\n" +
-                    $" Nome do cliente:{textBox1.Text}\n\n" +
-                    $" Produtos: {extratop}\n\n" +
-                    $"Método de pagamento: {comboBox1.SelectedItem}\n\n" +
-                    $"Seu total é de : R$ {total:F2}\n\n" +
-                    $"Data e hora: {hora}\n\n " + 
-                    $" Viagem: {viagem}");
-
-                    listBox2.Items.Clear();
-                    lblTotal.Text = $" TOTAL: R$ {total = 0}";
-                    textBox2.Clear();
-                    textBox1.Clear();
-                    textBox3.Clear();
-                    extrato.Clear();
-                    checkBox1.Checked= false;
-                    comboBox1.SelectedIndex = -1;
-                   
-                }
-                
             }
-        
+
+            else
+            {
+
+                string extratop = string.Join("\n", extrato);
+                MessageBox.Show($"Dados do pedido:\n\n" +
+                $" Nome do cliente:{textBox1.Text}\n\n" +
+                $" Produtos: {extratop}\n\n" +
+                $"Método de pagamento: {comboBox1.SelectedItem}\n\n" +
+                $"Seu total é de : R$ {total:F2}\n\n" +
+                $"Data e hora: {hora}\n\n " +
+                $" Viagem: {viagem}");
+
+                listBox2.Items.Clear();
+                lblTotal.Text = $" TOTAL: R$ {total = 0}";
+                textBox2.Clear();
+                textBox1.Clear();
+                textBox3.Clear();
+                extrato.Clear();
+                checkBox1.Checked = false;
+                comboBox1.SelectedIndex = -1;
+
+            }
+
+        }
+
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -194,7 +194,7 @@ namespace cantina
         {
             if (comboBox1.SelectedIndex == 3)
             {
-                
+
 
                 if (double.TryParse(textBox2.Text, out double valorTroco))
                 {
@@ -216,17 +216,17 @@ namespace cantina
             if (comboBox1.SelectedIndex == 0)
             {
                 metodo = "pix";
-                mostrarTroco = false ;
+                mostrarTroco = false;
             }
-            else if (comboBox1.SelectedIndex == 1) 
+            else if (comboBox1.SelectedIndex == 1)
             {
                 metodo = "Cartão crédito";
-                mostrarTroco = false ;
+                mostrarTroco = false;
             }
             else if (comboBox1.SelectedIndex == 2)
             {
                 metodo = "Cartão débito";
-                mostrarTroco = false ;
+                mostrarTroco = false;
             }
             else if (comboBox1.SelectedIndex == 3)
             {
@@ -247,6 +247,16 @@ namespace cantina
         private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Balcao balcao = new Balcao();
+            balcao.Show();
+
+            
+            Pedido pedido = new Pedido();
+            PersistenciaPedido.Pedidos.Add(pedido);
         }
     }
 }

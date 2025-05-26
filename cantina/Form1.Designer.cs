@@ -75,13 +75,13 @@
             // listBox1
             // 
             listBox1.BackColor = Color.FromArgb(202, 196, 183);
-            listBox1.Font = new Font("Microsoft JhengHei", 11.25F);
+            listBox1.Font = new Font("Inter", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             listBox1.ForeColor = Color.Black;
             listBox1.FormattingEnabled = true;
-            listBox1.ItemHeight = 19;
+            listBox1.ItemHeight = 18;
             listBox1.Location = new Point(29, 137);
             listBox1.Name = "listBox1";
-            listBox1.Size = new Size(220, 80);
+            listBox1.Size = new Size(251, 76);
             listBox1.TabIndex = 1;
             listBox1.SelectedIndexChanged += listBox1_SelectedIndexChanged;
             // 
@@ -114,13 +114,13 @@
             // listBox2
             // 
             listBox2.BackColor = Color.FromArgb(202, 196, 183);
-            listBox2.Font = new Font("Microsoft JhengHei", 11.25F);
+            listBox2.Font = new Font("Inter", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             listBox2.ForeColor = Color.Black;
             listBox2.FormattingEnabled = true;
-            listBox2.ItemHeight = 19;
+            listBox2.ItemHeight = 17;
             listBox2.Location = new Point(298, 137);
             listBox2.Name = "listBox2";
-            listBox2.Size = new Size(211, 80);
+            listBox2.Size = new Size(250, 72);
             listBox2.TabIndex = 4;
             // 
             // label2
@@ -277,6 +277,7 @@
             button2.TabIndex = 23;
             button2.Text = "Mandar para o balcão ";
             button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
             // 
             // textBox2
             // 
@@ -301,9 +302,10 @@
             // checkBox1
             // 
             checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(430, 233);
+            checkBox1.Font = new Font("Agrandir Semi Narrow", 8.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            checkBox1.Location = new Point(482, 215);
             checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(66, 19);
+            checkBox1.Size = new Size(67, 20);
             checkBox1.TabIndex = 27;
             checkBox1.Text = "Viagem";
             checkBox1.UseVisualStyleBackColor = true;
