@@ -9,7 +9,7 @@ namespace cantina
     {
         List <Produto> extrato = new List <Produto> ();
         string metodo;
-        public void dinheiro()
+        public bool dinheiro()
         {
           
                 double.TryParse(textBox2.Text, out double valorTroco);
@@ -18,11 +18,12 @@ namespace cantina
                 {
                     double troco = valorTroco - total;
                     textBox3.Text = $"R$ {troco}";
+                return true ;
                 }
-                if (valorTroco < total)
+                else
                 {
                     MessageBox.Show("Valor insuficiente");
-                    
+                    return false ;
             }
            
         }
@@ -102,16 +103,19 @@ namespace cantina
             }
             if (comboBox1.SelectedIndex == 3)
             {
-                dinheiro();
+                if (!dinheiro())
+                {
+                    return;
+                }
             }
 
-                if (textBox1 == null || comboBox1.SelectedIndex == -1)
+                if (textBox1 == null || comboBox1.SelectedItem == null || textBox2 == null)
                 {
                     MessageBox.Show("Informação faltando!");
                     
                 }
 
-                if (textBox1 != null && comboBox1.SelectedIndex >= -1 && metodo != null && textBox3!=null && textBox2!=null)
+             else 
                 {
                     
                     string extratop = string.Join("\n", extrato);
