@@ -44,7 +44,7 @@ namespace cantina
                 int quant = (int)numericQuant.Value;
 
                 Produto produtoSelecionado = (Produto)listBox1.SelectedItem;
-                Produto vendaFeita = new Produto(produtoSelecionado.Descricao, produtoSelecionado.Valor);
+                Produto vendaFeita = new Produto(produtoSelecionado.Descricao, produtoSelecionado.Valor, produtoSelecionado.Chapa);
                 vendaFeita.Quantidade = (int)numericQuant.Value;
                 listBox2.Items.Add(vendaFeita);
                 extrato.Add(vendaFeita);
@@ -127,6 +127,9 @@ namespace cantina
                 $"Data e hora: {hora}\n\n " +
                 $" Viagem: {viagem}");
 
+                Venda venda = new Venda();
+                venda.pedido = listBox2.Items.Cast<Produto>().ToList();
+                PersistenciaPedido.Pedidos.Add(venda);
                 listBox2.Items.Clear();
                 lblTotal.Text = $" TOTAL: R$ {total = 0}";
                 textBox2.Clear();
@@ -143,16 +146,16 @@ namespace cantina
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            listBox1.Items.Add(new Produto("Coxinha", 5.00));
-            listBox1.Items.Add(new Produto("Pastel de Carne", 6.00));
-            listBox1.Items.Add(new Produto("Pastel de Queijo", 5.50));
-            listBox1.Items.Add(new Produto("Refrigerante Lata", 4.50));
-            listBox1.Items.Add(new Produto("Suco Natural (300ml)", 3.00));
-            listBox1.Items.Add(new Produto("Pão de Queijo", 3.50));
-            listBox1.Items.Add(new Produto("Hambúrguer Simples", 8.00));
-            listBox1.Items.Add(new Produto("Hambúrguer com Queijo", 9.00));
-            listBox1.Items.Add(new Produto("X-tudo", 12.00));
-            listBox1.Items.Add(new Produto("Água Mineral (500ml)", 2.50));
+            listBox1.Items.Add(new Produto("Coxinha", 5.00, false));
+            listBox1.Items.Add(new Produto("Pastel de Carne", 6.00, true));
+            listBox1.Items.Add(new Produto("Pastel de Queijo", 5.50, true ));
+            listBox1.Items.Add(new Produto("Refrigerante Lata", 4.50, false));
+            listBox1.Items.Add(new Produto("Suco Natural (300ml)", 3.00,false));
+            listBox1.Items.Add(new Produto("Pão de Queijo", 3.50,false));
+            listBox1.Items.Add(new Produto("Hambúrguer Simples", 8.00, true));
+            listBox1.Items.Add(new Produto("Hambúrguer com Queijo", 9.00, true));
+            listBox1.Items.Add(new Produto("X-tudo", 12.00, true));
+            listBox1.Items.Add(new Produto("Água Mineral (500ml)", 2.50, false));
 
             comboBox1.Items.Add("Pix");
             comboBox1.Items.Add("Cartão crédito");
@@ -254,9 +257,10 @@ namespace cantina
             Balcao balcao = new Balcao();
             balcao.Show();
 
+
             
-            Pedido pedido = new Pedido();
-            PersistenciaPedido.Pedidos.Add(pedido);
+           
+          
         }
     }
 }

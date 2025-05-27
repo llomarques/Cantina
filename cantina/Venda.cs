@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace cantina
 {
-    internal class Venda
-    { List<Venda> pedido = new List<Venda>();
+     class Venda
+    { 
+        public List<Produto> pedido = new List<Produto>();
         string nome_cliente;
         string metodo_pag;
         string isviagem;

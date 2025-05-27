@@ -28,21 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            listBox1 = new ListBox();
+            listbalcao = new ListBox();
             label1 = new Label();
             SuspendLayout();
             // 
-            // listBox1
+            // listbalcao
             // 
-            listBox1.BackColor = Color.FromArgb(202, 196, 183);
-            listBox1.Font = new Font("Inter", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            listBox1.FormattingEnabled = true;
-            listBox1.ItemHeight = 17;
-            listBox1.Location = new Point(12, 72);
-            listBox1.Name = "listBox1";
-            listBox1.Size = new Size(430, 123);
-            listBox1.TabIndex = 0;
-            
+            listbalcao.BackColor = Color.FromArgb(202, 196, 183);
+            listbalcao.Font = new Font("Inter", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            listbalcao.FormattingEnabled = true;
+            listbalcao.ItemHeight = 17;
+            listbalcao.Location = new Point(12, 72);
+            listbalcao.Name = "listbalcao";
+            listbalcao.Size = new Size(428, 174);
+            listbalcao.TabIndex = 0;
             // 
             // label1
             // 
@@ -61,16 +60,17 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(label1);
-            Controls.Add(listBox1);
+            Controls.Add(listbalcao);
             Name = "Balcao";
             Text = "Form2";
+            Load += Balcao_Load;
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private ListBox listBox1;
+        private ListBox listbalcao;
         private Label label1;
     }
 }

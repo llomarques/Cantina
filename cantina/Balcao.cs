@@ -16,19 +16,27 @@ namespace cantina
         {
             InitializeComponent();
         }
+
         private void Balcao_Load(object sender, EventArgs e)
         {
-            AtualizarLista();
-        }
-
-        private void AtualizarLista()
-        {
-            listBox1.Items.Clear();
-
-            foreach (var pedido in PersistenciaPedido.Pedidos)
+            foreach (var produto in PersistenciaPedido.Pedidos)
             {
-                string item = $"{pedido.Cliente} - R$ {pedido.Total:F2} - {pedido.DataHora:HH:mm:ss} - {pedido.TipoConsumo}";
-                listBox1.Items.Add(item);
+                bool pedidoChapa = false; 
+
+                foreach (var item in produto.pedido)
+                { if (item.Chapa)
+                    {
+
+                        pedidoChapa = true;
+                        break;
+                    }
+                    if (!pedidoChapa)
+                    {
+                        listbalcao.Items.Add($"{item.Quantidade}x {item.Descricao}");
+                    }
+                }
+                
+
             }
         }
     }

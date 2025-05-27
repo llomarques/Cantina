@@ -12,8 +12,14 @@ namespace cantina
         private string descricao;
         private double valor;
         private int quantidade = 0;
+        private bool chapa; 
 
 
+        public bool Chapa
+        {
+            get { return chapa; }
+            set { chapa = value; }
+        }
         public string Descricao
         {
             get { return descricao; }
@@ -30,12 +36,13 @@ namespace cantina
         }
         public object listBox2 { get; internal set; }
 
-        public Produto( string descricao, double valor)
+        public Produto( string descricao, double valor, bool chapa)
         {
             
             this.descricao = descricao;
             this.valor = valor;
             this.quantidade = 0;
+            this.chapa = chapa;
 
         }
         public override string ToString()
