@@ -12,8 +12,8 @@ namespace cantina
         string nome_cliente;
         string metodo_pag;
         string isviagem;
-        string status; 
-
+        string status;
+        string data;
 
 
     }
