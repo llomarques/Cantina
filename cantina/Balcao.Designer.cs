@@ -54,7 +54,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Agrandir Semi Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.DarkGray;
-            label1.Location = new Point(12, 95);
+            label1.Location = new Point(21, 95);
             label1.Name = "label1";
             label1.Size = new Size(116, 20);
             label1.TabIndex = 1;

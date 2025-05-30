@@ -168,7 +168,6 @@
             dateTimePicker2.Size = new Size(79, 23);
             dateTimePicker2.TabIndex = 9;
             dateTimePicker2.Value = new DateTime(2025, 5, 12, 9, 0, 52, 0);
-            dateTimePicker2.ValueChanged += dateTimePicker2_ValueChanged;
             // 
             // numericQuant
             // 
@@ -202,6 +201,7 @@
             // textBox1
             // 
             textBox1.BackColor = Color.FromArgb(202, 193, 183);
+            textBox1.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             textBox1.Location = new Point(740, 137);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(172, 23);
@@ -251,7 +251,6 @@
             textBox3.Size = new Size(107, 23);
             textBox3.TabIndex = 21;
             textBox3.Visible = false;
-            textBox3.TextChanged += textBox3_TextChanged;
             // 
             // label7
             // 
@@ -264,7 +263,6 @@
             label7.TabIndex = 22;
             label7.Text = "Troco";
             label7.Visible = false;
-            label7.Click += label7_Click;
             // 
             // button2
             // 
@@ -277,7 +275,7 @@
             button2.TabIndex = 23;
             button2.Text = "Mandar para o balcão ";
             button2.UseVisualStyleBackColor = false;
-            button2.Click += button2_Click;
+            button2.Click += buttonBalcao_Click;
             // 
             // textBox2
             // 
