@@ -128,20 +128,41 @@ namespace cantina
                 $" Viagem: {viagem}");
 
                 Venda venda = new Venda(textBox1.Text, comboBox1.SelectedItem.ToString(), viagem);
-                venda.pedido = listBox2.Items.Cast<Produto>().ToList();
-                venda.Nome_cliente = textBox1.Text;
-                PersistenciaPedido.Pedidos.Add(venda);
-                listBox2.Items.Clear();
-                lblTotal.Text = $" TOTAL: R$ {total = 0}";
-                textBox2.Clear();
-                textBox1.Clear();
-                textBox3.Clear();
-                extrato.Clear();
-                checkBox1.Checked = false;
-                comboBox1.SelectedIndex = -1;
+                foreach (var produto in PersistenciaPedido.Pedidos)
+                {
+                    bool pedidoChapa = false;
+
+                    foreach (var item in produto.pedido)
+                    {
+                        if (item.Chapa)
+                        {
+                            pedidoChapa = true;
+                            break;
+                        }
+                    }
+                    if (pedidoChapa)
+                    {
+                        venda.Status = Status.Preparando;
+                    }
+                    else
+                    {
+                        venda.Status = Status.Pronto;
+                    }
+                    venda.pedido = listBox2.Items.Cast<Produto>().ToList();
+                    venda.Nome_cliente = textBox1.Text;
+                    PersistenciaPedido.Pedidos.Add(venda);
+                    listBox2.Items.Clear();
+                    lblTotal.Text = $" TOTAL: R$ {total = 0}";
+                    textBox2.Clear();
+                    textBox1.Clear();
+                    textBox3.Clear();
+                    extrato.Clear();
+                    checkBox1.Checked = false;
+                    comboBox1.SelectedIndex = -1;
+
+                }
 
             }
-
         }
 
 
