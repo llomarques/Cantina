@@ -35,6 +35,7 @@
             label2 = new Label();
             pictureBox1 = new PictureBox();
             btnEntregar = new Button();
+            btnVoltar = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -48,6 +49,7 @@
             listbalcao.Name = "listbalcao";
             listbalcao.Size = new Size(380, 208);
             listbalcao.TabIndex = 0;
+            listbalcao.SelectedIndexChanged += listbalcao_SelectedIndexChanged_1;
             // 
             // label1
             // 
@@ -70,6 +72,7 @@
             listentrega.Name = "listentrega";
             listentrega.Size = new Size(380, 208);
             listentrega.TabIndex = 2;
+            listentrega.SelectedIndexChanged += listentrega_SelectedIndexChanged;
             // 
             // label2
             // 
@@ -97,7 +100,7 @@
             btnEntregar.BackColor = Color.FromArgb(17, 25, 12);
             btnEntregar.Font = new Font("Inter Medium", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnEntregar.ForeColor = Color.FromArgb(230, 255, 0);
-            btnEntregar.Location = new Point(12, 332);
+            btnEntregar.Location = new Point(674, 372);
             btnEntregar.Name = "btnEntregar";
             btnEntregar.Size = new Size(104, 36);
             btnEntregar.TabIndex = 14;
@@ -105,11 +108,24 @@
             btnEntregar.UseVisualStyleBackColor = false;
             btnEntregar.Click += btnEntregar_Click_1;
             // 
+            // btnVoltar
+            // 
+            btnVoltar.BackColor = Color.FromArgb(17, 25, 12);
+            btnVoltar.Font = new Font("Inter ExtraBold", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnVoltar.ForeColor = Color.FromArgb(230, 255, 0);
+            btnVoltar.Location = new Point(21, 372);
+            btnVoltar.Name = "btnVoltar";
+            btnVoltar.Size = new Size(54, 39);
+            btnVoltar.TabIndex = 15;
+            btnVoltar.Text = "←";
+            btnVoltar.UseVisualStyleBackColor = false;
+            // 
             // Balcao
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(btnVoltar);
             Controls.Add(btnEntregar);
             Controls.Add(pictureBox1);
             Controls.Add(label2);
@@ -132,5 +148,6 @@
         private Label label2;
         private PictureBox pictureBox1;
         private Button btnEntregar;
+        private Button btnVoltar;
     }
 }

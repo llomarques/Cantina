@@ -19,11 +19,29 @@ namespace cantina
 
         private void Balcao_Load(object sender, EventArgs e)
         {
-            
-            foreach (var produto in PersistenciaPedido.Pedidos= s)
-
             btnEntregar.FlatStyle = FlatStyle.Flat;
             btnEntregar.FlatAppearance.BorderSize = 3;
+            btnVoltar.FlatStyle = FlatStyle.Flat;
+            btnVoltar.FlatAppearance.BorderSize = 3;
+
+            foreach (var produto in PersistenciaPedido.Pedidos)
+            {
+
+                if (produto.Status == Status.Pronto)
+                {
+                    listbalcao.Items.Add(produto);
+                }
+
+            }
+            foreach (var produto in PersistenciaPedido.Pedidos)
+            {
+
+                if (produto.Status == Status.Entregue)
+                {
+                    listentrega.Items.Add(produto);
+                }
+
+            }
         }
 
 
@@ -31,6 +49,8 @@ namespace cantina
 
         private void btnEntregar_Click_1(object sender, EventArgs e)
         {
+            var pedidoSelecionado = listbalcao.SelectedItem as Venda;
+
             if (listbalcao.SelectedItem != null)
             {
 
@@ -39,6 +59,7 @@ namespace cantina
                     listentrega.Items.RemoveAt(4);
                 }
 
+                pedidoSelecionado.Status = Status.Entregue;
                 listentrega.Items.Insert(0, listbalcao.SelectedItem);
 
                 listbalcao.Items.RemoveAt(listbalcao.SelectedIndex);
@@ -51,6 +72,16 @@ namespace cantina
 
 
         private void listbalcao_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listbalcao_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listentrega_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

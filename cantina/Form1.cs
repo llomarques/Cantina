@@ -127,27 +127,28 @@ namespace cantina
                 $"Data e hora: {hora}\n\n " +
                 $" Viagem: {viagem}");
 
-                Venda venda = new Venda(textBox1.Text, comboBox1.SelectedItem.ToString(), viagem);
-                foreach (var produto in PersistenciaPedido.Pedidos)
-                {
+                Venda venda = new Venda();
+               
                     bool pedidoChapa = false;
 
-                    foreach (var item in produto.pedido)
+                    foreach (Produto item in venda.pedido)
                     {
                         if (item.Chapa)
                         {
                             pedidoChapa = true;
-                            break;
+                        break;
                         }
                     }
                     if (pedidoChapa)
                     {
                         venda.Status = Status.Preparando;
+                        
                     }
                     else
                     {
                         venda.Status = Status.Pronto;
                     }
+                
                     venda.pedido = listBox2.Items.Cast<Produto>().ToList();
                     venda.Nome_cliente = textBox1.Text;
                     PersistenciaPedido.Pedidos.Add(venda);
@@ -163,7 +164,7 @@ namespace cantina
                 }
 
             }
-        }
+        
 
 
         private void Form1_Load(object sender, EventArgs e)
@@ -259,8 +260,10 @@ namespace cantina
 
         private void buttonBalcao_Click(object sender, EventArgs e)
         {
-            Balcao balcao = new Balcao();
-            balcao.Show();
+          
+
+            Balcao bal = new Balcao();
+            bal.Show();
         }
     }
 }
