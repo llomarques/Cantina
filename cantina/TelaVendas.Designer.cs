@@ -1,6 +1,6 @@
 ﻿namespace cantina
 {
-    partial class Form1
+    partial class TelaVendas
     {
         /// <summary>
         ///  Required designer variable.
@@ -33,7 +33,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TelaVendas));
             label1 = new Label();
             listBox1 = new ListBox();
             btnAdicionar = new Button();
@@ -56,6 +56,7 @@
             textBox2 = new TextBox();
             comboBox1 = new ComboBox();
             checkBox1 = new CheckBox();
+            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)numericQuant).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -94,7 +95,7 @@
             btnAdicionar.Name = "btnAdicionar";
             btnAdicionar.Size = new Size(104, 36);
             btnAdicionar.TabIndex = 2;
-            btnAdicionar.Text = "Adicionar >";
+            btnAdicionar.Text = "Adicionar ";
             btnAdicionar.UseVisualStyleBackColor = false;
             btnAdicionar.Click += btnAdicionar_Click;
             // 
@@ -107,7 +108,7 @@
             btnRemover.Name = "btnRemover";
             btnRemover.Size = new Size(107, 36);
             btnRemover.TabIndex = 3;
-            btnRemover.Text = "< Remover";
+            btnRemover.Text = " Remover";
             btnRemover.UseVisualStyleBackColor = false;
             btnRemover.Click += btnRemover_Click;
             // 
@@ -269,11 +270,11 @@
             button2.BackColor = Color.FromArgb(17, 25, 12);
             button2.Font = new Font("Inter Medium", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button2.ForeColor = Color.FromArgb(230, 255, 0);
-            button2.Location = new Point(740, 336);
+            button2.Location = new Point(824, 355);
             button2.Name = "button2";
-            button2.Size = new Size(201, 35);
+            button2.Size = new Size(88, 35);
             button2.TabIndex = 23;
-            button2.Text = "Mandar para o balcão ";
+            button2.Text = "Balcâo ";
             button2.UseVisualStyleBackColor = false;
             button2.Click += buttonBalcao_Click;
             // 
@@ -308,13 +309,26 @@
             checkBox1.Text = "Viagem";
             checkBox1.UseVisualStyleBackColor = true;
             // 
-            // Form1
+            // button1
+            // 
+            button1.BackColor = Color.FromArgb(17, 25, 12);
+            button1.Font = new Font("Inter Medium", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button1.ForeColor = Color.FromArgb(230, 255, 0);
+            button1.Location = new Point(824, 396);
+            button1.Name = "button1";
+            button1.Size = new Size(88, 35);
+            button1.TabIndex = 28;
+            button1.Text = "Cozinha ";
+            button1.UseVisualStyleBackColor = false;
+            // 
+            // TelaVendas
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(243, 241, 238);
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(965, 559);
+            Controls.Add(button1);
             Controls.Add(checkBox1);
             Controls.Add(comboBox1);
             Controls.Add(textBox2);
@@ -338,7 +352,7 @@
             Controls.Add(listBox1);
             Controls.Add(label1);
             MdiChildrenMinimizedAnchorBottom = false;
-            Name = "Form1";
+            Name = "TelaVendas";
             Text = "Form1";
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)numericQuant).EndInit();
@@ -371,5 +385,6 @@
         private TextBox textBox2;
         private ComboBox comboBox1;
         private CheckBox checkBox1;
+        private Button button1;
     }
 }

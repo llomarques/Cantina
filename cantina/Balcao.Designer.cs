@@ -49,14 +49,13 @@
             listbalcao.Name = "listbalcao";
             listbalcao.Size = new Size(380, 208);
             listbalcao.TabIndex = 0;
-            listbalcao.SelectedIndexChanged += listbalcao_SelectedIndexChanged_1;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Agrandir Semi Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.DarkGray;
-            label1.Location = new Point(21, 95);
+            label1.Location = new Point(12, 95);
             label1.Name = "label1";
             label1.Size = new Size(116, 20);
             label1.TabIndex = 1;
@@ -72,7 +71,6 @@
             listentrega.Name = "listentrega";
             listentrega.Size = new Size(380, 208);
             listentrega.TabIndex = 2;
-            listentrega.SelectedIndexChanged += listentrega_SelectedIndexChanged;
             // 
             // label2
             // 
@@ -113,12 +111,13 @@
             btnVoltar.BackColor = Color.FromArgb(17, 25, 12);
             btnVoltar.Font = new Font("Inter ExtraBold", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnVoltar.ForeColor = Color.FromArgb(230, 255, 0);
-            btnVoltar.Location = new Point(21, 372);
+            btnVoltar.Location = new Point(12, 361);
             btnVoltar.Name = "btnVoltar";
-            btnVoltar.Size = new Size(54, 39);
+            btnVoltar.Size = new Size(53, 47);
             btnVoltar.TabIndex = 15;
             btnVoltar.Text = "←";
             btnVoltar.UseVisualStyleBackColor = false;
+            btnVoltar.Click += btnVoltar_Click;
             // 
             // Balcao
             // 

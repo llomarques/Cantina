@@ -5,7 +5,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace cantina
 {
-    public partial class Form1 : Form
+    public partial class TelaVendas : Form
     {
         List<Produto> extrato = new List<Produto>();
         string metodo;
@@ -27,7 +27,7 @@ namespace cantina
             }
 
         }
-        public Form1()
+        public TelaVendas()
         {
             InitializeComponent();
             GetButtonFinalizar();
@@ -128,8 +128,10 @@ namespace cantina
                 $" Viagem: {viagem}");
 
                 Venda venda = new Venda();
-               
-                    bool pedidoChapa = false;
+                venda.pedido = listBox2.Items.Cast<Produto>().ToList();
+                venda.Nome_cliente = textBox1.Text;
+
+                bool pedidoChapa = false;
 
                     foreach (Produto item in venda.pedido)
                     {
@@ -149,8 +151,7 @@ namespace cantina
                         venda.Status = Status.Pronto;
                     }
                 
-                    venda.pedido = listBox2.Items.Cast<Produto>().ToList();
-                    venda.Nome_cliente = textBox1.Text;
+                    
                     PersistenciaPedido.Pedidos.Add(venda);
                     listBox2.Items.Clear();
                     lblTotal.Text = $" TOTAL: R$ {total = 0}";

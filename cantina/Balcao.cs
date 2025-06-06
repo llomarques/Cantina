@@ -70,20 +70,10 @@ namespace cantina
             }
         }
 
-
-        private void listbalcao_SelectedIndexChanged(object sender, EventArgs e)
+        private void btnVoltar_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void listbalcao_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void listentrega_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
+            TelaVendas telaVendas = new TelaVendas();
+            telaVendas.Show();
         }
     }
 }
