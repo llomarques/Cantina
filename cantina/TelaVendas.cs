@@ -133,39 +133,39 @@ namespace cantina
 
                 bool pedidoChapa = false;
 
-                    foreach (Produto item in venda.pedido)
+                foreach (Produto item in venda.pedido)
+                {
+                    if (item.Chapa)
                     {
-                        if (item.Chapa)
-                        {
-                            pedidoChapa = true;
+                        pedidoChapa = true;
                         break;
-                        }
                     }
-                    if (pedidoChapa)
-                    {
-                        venda.Status = Status.Preparando;
-                        
-                    }
-                    else
-                    {
-                        venda.Status = Status.Pronto;
-                    }
-                
-                    
-                    PersistenciaPedido.Pedidos.Add(venda);
-                    listBox2.Items.Clear();
-                    lblTotal.Text = $" TOTAL: R$ {total = 0}";
-                    textBox2.Clear();
-                    textBox1.Clear();
-                    textBox3.Clear();
-                    extrato.Clear();
-                    checkBox1.Checked = false;
-                    comboBox1.SelectedIndex = -1;
+                }
+                if (pedidoChapa)
+                {
+                    venda.Status = Status.Preparando;
 
                 }
+                else
+                {
+                    venda.Status = Status.Pronto;
+                }
+
+
+                PersistenciaPedido.Pedidos.Add(venda);
+                listBox2.Items.Clear();
+                lblTotal.Text = $" TOTAL: R$ {total = 0}";
+                textBox2.Clear();
+                textBox1.Clear();
+                textBox3.Clear();
+                extrato.Clear();
+                checkBox1.Checked = false;
+                comboBox1.SelectedIndex = -1;
 
             }
-        
+
+        }
+
 
 
         private void Form1_Load(object sender, EventArgs e)
@@ -194,6 +194,8 @@ namespace cantina
             btnRemover.FlatAppearance.BorderSize = 3;
             button2.FlatStyle = FlatStyle.Flat;
             button2.FlatAppearance.BorderSize = 3;
+            btnCozinha.FlatStyle = FlatStyle.Flat;
+            btnCozinha.FlatAppearance.BorderSize = 3;
 
 
 
@@ -261,10 +263,16 @@ namespace cantina
 
         private void buttonBalcao_Click(object sender, EventArgs e)
         {
-          
+
 
             Balcao bal = new Balcao();
             bal.Show();
+        }
+
+        private void btnCozinha_Click(object sender, EventArgs e)
+        {
+            Cozinha cozinha = new Cozinha();
+            cozinha.Show();
         }
     }
 }

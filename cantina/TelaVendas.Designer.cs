@@ -56,7 +56,7 @@
             textBox2 = new TextBox();
             comboBox1 = new ComboBox();
             checkBox1 = new CheckBox();
-            button1 = new Button();
+            btnCozinha = new Button();
             ((System.ComponentModel.ISupportInitialize)numericQuant).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -181,7 +181,7 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(29, 23);
+            pictureBox1.Location = new Point(12, 12);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(121, 64);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -274,7 +274,7 @@
             button2.Name = "button2";
             button2.Size = new Size(88, 35);
             button2.TabIndex = 23;
-            button2.Text = "Balcâo ";
+            button2.Text = "Balcão ";
             button2.UseVisualStyleBackColor = false;
             button2.Click += buttonBalcao_Click;
             // 
@@ -309,17 +309,18 @@
             checkBox1.Text = "Viagem";
             checkBox1.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnCozinha
             // 
-            button1.BackColor = Color.FromArgb(17, 25, 12);
-            button1.Font = new Font("Inter Medium", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.ForeColor = Color.FromArgb(230, 255, 0);
-            button1.Location = new Point(824, 396);
-            button1.Name = "button1";
-            button1.Size = new Size(88, 35);
-            button1.TabIndex = 28;
-            button1.Text = "Cozinha ";
-            button1.UseVisualStyleBackColor = false;
+            btnCozinha.BackColor = Color.FromArgb(17, 25, 12);
+            btnCozinha.Font = new Font("Inter Medium", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnCozinha.ForeColor = Color.FromArgb(230, 255, 0);
+            btnCozinha.Location = new Point(824, 396);
+            btnCozinha.Name = "btnCozinha";
+            btnCozinha.Size = new Size(88, 35);
+            btnCozinha.TabIndex = 28;
+            btnCozinha.Text = "Cozinha ";
+            btnCozinha.UseVisualStyleBackColor = false;
+            btnCozinha.Click += btnCozinha_Click;
             // 
             // TelaVendas
             // 
@@ -328,7 +329,7 @@
             BackColor = Color.FromArgb(243, 241, 238);
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(965, 559);
-            Controls.Add(button1);
+            Controls.Add(btnCozinha);
             Controls.Add(checkBox1);
             Controls.Add(comboBox1);
             Controls.Add(textBox2);
@@ -385,6 +386,6 @@
         private TextBox textBox2;
         private ComboBox comboBox1;
         private CheckBox checkBox1;
-        private Button button1;
+        private Button btnCozinha;
     }
 }

@@ -49,6 +49,7 @@
             listbalcao.Name = "listbalcao";
             listbalcao.Size = new Size(380, 208);
             listbalcao.TabIndex = 0;
+            listbalcao.SelectedIndexChanged += listbalcao_SelectedIndexChanged;
             // 
             // label1
             // 
@@ -86,7 +87,7 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(21, 12);
+            pictureBox1.Location = new Point(12, 12);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(121, 64);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -98,9 +99,9 @@
             btnEntregar.BackColor = Color.FromArgb(17, 25, 12);
             btnEntregar.Font = new Font("Inter Medium", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnEntregar.ForeColor = Color.FromArgb(230, 255, 0);
-            btnEntregar.Location = new Point(674, 372);
+            btnEntregar.Location = new Point(670, 372);
             btnEntregar.Name = "btnEntregar";
-            btnEntregar.Size = new Size(104, 36);
+            btnEntregar.Size = new Size(108, 36);
             btnEntregar.TabIndex = 14;
             btnEntregar.Text = "Entregar ";
             btnEntregar.UseVisualStyleBackColor = false;

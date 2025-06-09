@@ -75,6 +75,11 @@ namespace cantina
             TelaVendas telaVendas = new TelaVendas();
             telaVendas.Show();
         }
+
+        private void listbalcao_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
     
