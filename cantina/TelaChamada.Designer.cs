@@ -52,9 +52,9 @@
             labelNome.Font = new Font("Inter", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             labelNome.Location = new Point(373, 225);
             labelNome.Name = "labelNome";
-            labelNome.Size = new Size(53, 23);
+            labelNome.Size = new Size(55, 23);
             labelNome.TabIndex = 16;
-            labelNome.Text = "label1";
+            labelNome.Text = "Nome";
             // 
             // lblNome
             // 
@@ -62,9 +62,9 @@
             lblNome.Font = new Font("Agrandir Semi Narrow", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblNome.Location = new Point(218, 148);
             lblNome.Name = "lblNome";
-            lblNome.Size = new Size(365, 28);
+            lblNome.Size = new Size(370, 28);
             lblNome.TabIndex = 17;
-            lblNome.Text = "PRODUTO PRONTO PARA RETIRADA";
+            lblNome.Text = "PRODUTO PRONTO PARA RETIRADA:";
             // 
             // label1
             // 
@@ -88,6 +88,7 @@
             Controls.Add(pictureBox1);
             Name = "TelaChamada";
             Text = "TelaChamada";
+            Load += TelaChamada_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();

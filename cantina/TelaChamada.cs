@@ -16,5 +16,18 @@ namespace cantina
         {
             InitializeComponent();
         }
+
+        private void labelNome_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TelaChamada_Load(object sender, EventArgs e)
+        {
+            foreach (var produto in PersistenciaPedido.Pedidos)
+            {
+                labelNome.Text = produto.Nome_cliente;
+            }
+        }
     }
 }

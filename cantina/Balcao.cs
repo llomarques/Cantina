@@ -80,6 +80,12 @@ namespace cantina
         {
 
         }
+
+        private void btnChamar_Click(object sender, EventArgs e)
+        {
+            TelaChamada telaChamadaa = new TelaChamada();
+            telaChamadaa.Show();
+        }
     }
 }
     
