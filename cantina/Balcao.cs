@@ -23,6 +23,8 @@ namespace cantina
             btnEntregar.FlatAppearance.BorderSize = 3;
             btnVoltar.FlatStyle = FlatStyle.Flat;
             btnVoltar.FlatAppearance.BorderSize = 3;
+            btnChamar.FlatStyle = FlatStyle.Flat;
+            btnChamar.FlatAppearance.BorderSize = 3;
 
             foreach (var produto in PersistenciaPedido.Pedidos)
             {

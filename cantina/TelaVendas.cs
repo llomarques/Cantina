@@ -170,17 +170,21 @@ namespace cantina
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            listBox1.Items.Add(new Produto("Coxinha", 5.00, false));
-            listBox1.Items.Add(new Produto("Pastel de Carne", 6.00, true));
-            listBox1.Items.Add(new Produto("Pastel de Queijo", 5.50, true));
-            listBox1.Items.Add(new Produto("Refrigerante Lata", 4.50, false));
-            listBox1.Items.Add(new Produto("Suco Natural (300ml)", 3.00, false));
-            listBox1.Items.Add(new Produto("Pão de Queijo", 3.50, false));
-            listBox1.Items.Add(new Produto("Hambúrguer Simples", 8.00, true));
-            listBox1.Items.Add(new Produto("Hambúrguer com Queijo", 9.00, true));
-            listBox1.Items.Add(new Produto("X-tudo", 12.00, true));
-            listBox1.Items.Add(new Produto("Água Mineral (500ml)", 2.50, false));
+            //listBox1.Items.Add(new Produto("Coxinha", 5.00, false));
+            //listBox1.Items.Add(new Produto("Pastel de Carne", 6.00, true));
+            //listBox1.Items.Add(new Produto("Pastel de Queijo", 5.50, true));
+            //listBox1.Items.Add(new Produto("Refrigerante Lata", 4.50, false));
+            //listBox1.Items.Add(new Produto("Suco Natural (300ml)", 3.00, false));
+            //listBox1.Items.Add(new Produto("Pão de Queijo", 3.50, false));
+            //listBox1.Items.Add(new Produto("Hambúrguer Simples", 8.00, true));
+            //listBox1.Items.Add(new Produto("Hambúrguer com Queijo", 9.00, true));
+            //listBox1.Items.Add(new Produto("X-tudo", 12.00, true));
+            //listBox1.Items.Add(new Produto("Água Mineral (500ml)", 2.50, false));
 
+            foreach (var produto in PersistenciaProduto.ProdutosEstoque)
+            {
+                listBox1.Items.Add(produto);
+            }
             comboBox1.Items.Add("Pix");
             comboBox1.Items.Add("Cartão crédito");
             comboBox1.Items.Add("Cartão débito");
