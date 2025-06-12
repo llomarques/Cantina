@@ -37,12 +37,12 @@ namespace cantina
         double total = 0;
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
+            int quant = (int)numericQuant.Value;
+            Estoque estoque = new Estoque();
 
-
-            if (listBox1.SelectedItem != null && numericQuant.Value > 0)
+            if (listBox1.SelectedItem != null && numericQuant.Value > 0 && quant <= estoque.Quantidade &&  estoque != null)
             {
-                int quant = (int)numericQuant.Value;
-
+                
                 Produto produtoSelecionado = (Produto)listBox1.SelectedItem;
                 Produto vendaFeita = new Produto(produtoSelecionado.Descricao, produtoSelecionado.Valor, produtoSelecionado.Chapa);
                 vendaFeita.Quantidade = (int)numericQuant.Value;
@@ -55,6 +55,10 @@ namespace cantina
 
 
 
+            }
+            else if (quant > estoque.Quantidade)
+            {
+                MessageBox.Show("Quantidade insuficiente no estoque!");
             }
             else if (numericQuant.Value <= 0)
             {

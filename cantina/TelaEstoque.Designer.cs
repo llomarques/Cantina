@@ -33,6 +33,7 @@
             btnRemover = new Button();
             lab = new Label();
             numericUpDown1 = new NumericUpDown();
+            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             SuspendLayout();
             // 
@@ -63,6 +64,7 @@
             btnRemover.TabIndex = 2;
             btnRemover.Text = "Remover";
             btnRemover.UseVisualStyleBackColor = true;
+            btnRemover.Click += btnRemover_Click;
             // 
             // lab
             // 
@@ -81,11 +83,22 @@
             numericUpDown1.Size = new Size(46, 23);
             numericUpDown1.TabIndex = 5;
             // 
+            // button1
+            // 
+            button1.Location = new Point(698, 40);
+            button1.Name = "button1";
+            button1.Size = new Size(71, 32);
+            button1.TabIndex = 6;
+            button1.Text = "button1";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
             // TelaEstoque
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(button1);
             Controls.Add(numericUpDown1);
             Controls.Add(lab);
             Controls.Add(btnRemover);
@@ -106,5 +119,6 @@
         private Button btnRemover;
         private Label lab;
         private NumericUpDown numericUpDown1;
+        private Button button1;
     }
 }
