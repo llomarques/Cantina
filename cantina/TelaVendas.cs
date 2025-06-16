@@ -40,9 +40,10 @@ namespace cantina
             int quant = (int)numericQuant.Value;
             Estoque estoque = new Estoque();
 
-            if (listBox1.SelectedItem != null && numericQuant.Value > 0 && quant <= estoque.Quantidade &&  estoque != null)
+            //if (listBox1.SelectedItem != null && numericQuant.Value > 0 && quant <= estoque.Quantidade &&  estoque != null)
+            if (listBox1.SelectedItem != null && numericQuant.Value > 0)
             {
-                
+
                 Produto produtoSelecionado = (Produto)listBox1.SelectedItem;
                 Produto vendaFeita = new Produto(produtoSelecionado.Descricao, produtoSelecionado.Valor, produtoSelecionado.Chapa);
                 vendaFeita.Quantidade = (int)numericQuant.Value;
@@ -52,14 +53,16 @@ namespace cantina
                 lblTotal.Text = $" TOTAL: R$ {total:F2}";
                 listBox1.SelectedIndex = -1;
                 numericQuant.Value = 0;
+                estoque.RemoverQuantidade(quant);
+
 
 
 
             }
-            else if (quant > estoque.Quantidade)
-            {
-                MessageBox.Show("Quantidade insuficiente no estoque!");
-            }
+            //else if (quant > estoque.Quantidade)
+            //{
+            //    MessageBox.Show("Quantidade insuficiente no estoque!");
+            //}
             else if (numericQuant.Value <= 0)
             {
                 MessageBox.Show("Indique uma quantidade válida!");
@@ -157,6 +160,7 @@ namespace cantina
 
 
                 PersistenciaPedido.Pedidos.Add(venda);
+                PersistenciaPedido.saveToFile();
                 listBox2.Items.Clear();
                 lblTotal.Text = $" TOTAL: R$ {total = 0}";
                 textBox2.Clear();
@@ -281,6 +285,12 @@ namespace cantina
         {
             Cozinha cozinha = new Cozinha();
             cozinha.Show();
+        }
+
+        private void TelaVendas_Activated(object sender, EventArgs e)
+        {
+            PersistenciaPedido.LoadFromFile();
+
         }
     }
 }

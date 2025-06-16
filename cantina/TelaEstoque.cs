@@ -36,7 +36,16 @@ namespace cantina
 
             }
             Atualizarlista();
+
+
+            btnAdicionar.FlatStyle = FlatStyle.Flat;
+            btnAdicionar.FlatAppearance.BorderSize = 3;
+            btnRemover.FlatStyle = FlatStyle.Flat;
+            btnRemover.FlatAppearance.BorderSize = 3;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.FlatAppearance.BorderSize = 3;
         }
+
 
         private void btnAdicionar_Click(object sender, EventArgs e)
         {

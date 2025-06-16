@@ -343,6 +343,7 @@
             MdiChildrenMinimizedAnchorBottom = false;
             Name = "TelaVendas";
             Text = "Form1";
+            Activated += TelaVendas_Activated;
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)numericQuant).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

@@ -49,10 +49,10 @@
             // labelNome
             // 
             labelNome.AutoSize = true;
-            labelNome.Font = new Font("Inter", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            labelNome.Location = new Point(373, 225);
+            labelNome.Font = new Font("Inter", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelNome.Location = new Point(363, 233);
             labelNome.Name = "labelNome";
-            labelNome.Size = new Size(55, 23);
+            labelNome.Size = new Size(57, 23);
             labelNome.TabIndex = 16;
             labelNome.Text = "Nome";
             // 

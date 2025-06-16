@@ -13,14 +13,7 @@ namespace cantina
         private double valor;
         private int quantidade = 0;
         private bool chapa;
-        private string nome;
-
-        public string Nome 
-        { 
-            get { return nome; }
-            set { nome = value; }
-        }
-
+        
         public bool Chapa
         {
             get { return chapa; }
@@ -40,7 +33,6 @@ namespace cantina
             set { quantidade = value; }
             get { return quantidade; }  
         }
-        public object listBox2 { get; internal set; }
 
         public Produto( string descricao, double valor, bool chapa)
         {
