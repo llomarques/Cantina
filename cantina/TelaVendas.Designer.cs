@@ -155,7 +155,7 @@
             buttonFinalizar.ForeColor = Color.FromArgb(230, 255, 0);
             buttonFinalizar.Location = new Point(29, 403);
             buttonFinalizar.Name = "buttonFinalizar";
-            buttonFinalizar.Size = new Size(152, 31);
+            buttonFinalizar.Size = new Size(152, 40);
             buttonFinalizar.TabIndex = 6;
             buttonFinalizar.Text = "Finalizar pedido";
             buttonFinalizar.UseVisualStyleBackColor = false;

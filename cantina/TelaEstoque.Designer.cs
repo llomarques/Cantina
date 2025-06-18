@@ -44,38 +44,45 @@
             // 
             listEstoque.FormattingEnabled = true;
             listEstoque.ItemHeight = 15;
-            listEstoque.Location = new Point(12, 146);
+            listEstoque.Location = new Point(12, 137);
             listEstoque.Name = "listEstoque";
             listEstoque.Size = new Size(702, 184);
             listEstoque.TabIndex = 0;
             // 
             // btnAdicionar
             // 
+            btnAdicionar.BackColor = Color.FromArgb(17, 25, 12);
+            btnAdicionar.Font = new Font("Inter Medium", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAdicionar.ForeColor = Color.FromArgb(230, 255, 0);
             btnAdicionar.Location = new Point(84, 350);
             btnAdicionar.Name = "btnAdicionar";
             btnAdicionar.Size = new Size(110, 32);
             btnAdicionar.TabIndex = 1;
             btnAdicionar.Text = "Adicionar";
-            btnAdicionar.UseVisualStyleBackColor = true;
+            btnAdicionar.UseVisualStyleBackColor = false;
             btnAdicionar.Click += btnAdicionar_Click;
             // 
             // btnRemover
             // 
+            btnRemover.BackColor = Color.FromArgb(17, 25, 12);
+            btnRemover.Font = new Font("Inter Medium", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnRemover.ForeColor = Color.FromArgb(230, 255, 0);
             btnRemover.Location = new Point(84, 403);
             btnRemover.Name = "btnRemover";
             btnRemover.Size = new Size(109, 35);
             btnRemover.TabIndex = 2;
             btnRemover.Text = "Remover";
-            btnRemover.UseVisualStyleBackColor = true;
+            btnRemover.UseVisualStyleBackColor = false;
             btnRemover.Click += btnRemover_Click;
             // 
             // lab
             // 
             lab.AutoSize = true;
-            lab.Font = new Font("Inter Medium", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lab.Location = new Point(12, 103);
+            lab.Font = new Font("Agrandir Semi Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lab.ForeColor = Color.DarkGray;
+            lab.Location = new Point(12, 114);
             lab.Name = "lab";
-            lab.Size = new Size(72, 22);
+            lab.Size = new Size(69, 20);
             lab.TabIndex = 3;
             lab.Text = "Estoque ";
             // 
@@ -88,13 +95,15 @@
             // 
             // button1
             // 
+            button1.BackColor = Color.FromArgb(17, 25, 12);
+            button1.ForeColor = Color.FromArgb(230, 255, 0);
             button1.Location = new Point(601, 403);
             button1.Name = "button1";
             button1.Size = new Size(113, 32);
             button1.TabIndex = 6;
             button1.Text = "Fazer pedido";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            button1.UseVisualStyleBackColor = false;
+            //button1.Click += button1_Click;
             // 
             // pictureBox1
             // 

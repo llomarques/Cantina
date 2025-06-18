@@ -36,7 +36,6 @@
             pictureBox1 = new PictureBox();
             btnEntregar = new Button();
             btnVoltar = new Button();
-            btnChamar = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -100,7 +99,7 @@
             btnEntregar.BackColor = Color.FromArgb(17, 25, 12);
             btnEntregar.Font = new Font("Inter Medium", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnEntregar.ForeColor = Color.FromArgb(230, 255, 0);
-            btnEntregar.Location = new Point(671, 372);
+            btnEntregar.Location = new Point(683, 368);
             btnEntregar.Name = "btnEntregar";
             btnEntregar.Size = new Size(95, 36);
             btnEntregar.TabIndex = 14;
@@ -121,25 +120,11 @@
             btnVoltar.UseVisualStyleBackColor = false;
             btnVoltar.Click += btnVoltar_Click;
             // 
-            // btnChamar
-            // 
-            btnChamar.BackColor = Color.FromArgb(17, 25, 12);
-            btnChamar.Font = new Font("Inter Medium", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnChamar.ForeColor = Color.FromArgb(230, 255, 0);
-            btnChamar.Location = new Point(772, 372);
-            btnChamar.Name = "btnChamar";
-            btnChamar.Size = new Size(77, 36);
-            btnChamar.TabIndex = 16;
-            btnChamar.Text = "Chamar ";
-            btnChamar.UseVisualStyleBackColor = false;
-            btnChamar.Click += btnChamar_Click;
-            // 
             // Balcao
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(892, 435);
-            Controls.Add(btnChamar);
+            ClientSize = new Size(846, 435);
             Controls.Add(btnVoltar);
             Controls.Add(btnEntregar);
             Controls.Add(pictureBox1);
@@ -164,6 +149,5 @@
         private PictureBox pictureBox1;
         private Button btnEntregar;
         private Button btnVoltar;
-        private Button btnChamar;
     }
 }

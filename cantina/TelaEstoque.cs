@@ -72,10 +72,7 @@ namespace cantina
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            TelaVendas telaVendas = new TelaVendas();
-            telaVendas.Show();
-        }
+        
+        
     }
 }

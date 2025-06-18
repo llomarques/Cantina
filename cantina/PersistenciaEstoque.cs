@@ -12,7 +12,7 @@ namespace cantina
 
         public static void IniciarEstoque()
         {
-            foreach (var produto in PersistenciaProduto.ProdutosEstoque)
+            foreach (var produto in PersistenciaProduto.ProdutosEstoque) 
             {
                 Estoque estoque = new Estoque
                 {

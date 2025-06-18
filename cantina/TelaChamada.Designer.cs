@@ -50,7 +50,7 @@
             // 
             labelNome.AutoSize = true;
             labelNome.Font = new Font("Inter", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelNome.Location = new Point(363, 233);
+            labelNome.Location = new Point(364, 232);
             labelNome.Name = "labelNome";
             labelNome.Size = new Size(57, 23);
             labelNome.TabIndex = 16;
@@ -70,7 +70,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Agrandir Semi Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(255, 306);
+            label1.Location = new Point(259, 301);
             label1.Name = "label1";
             label1.Size = new Size(273, 20);
             label1.TabIndex = 18;

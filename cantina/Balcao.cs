@@ -23,8 +23,7 @@ namespace cantina
             btnEntregar.FlatAppearance.BorderSize = 3;
             btnVoltar.FlatStyle = FlatStyle.Flat;
             btnVoltar.FlatAppearance.BorderSize = 3;
-            btnChamar.FlatStyle = FlatStyle.Flat;
-            btnChamar.FlatAppearance.BorderSize = 3;
+          
 
             foreach (var produto in PersistenciaPedido.Pedidos)
             {
@@ -51,7 +50,7 @@ namespace cantina
 
         private void btnEntregar_Click_1(object sender, EventArgs e)
         {
-            var pedidoSelecionado = listbalcao.SelectedItem as Venda;
+            Venda pedidoSelecionado = (Venda)listbalcao.SelectedItem;
 
             if (listbalcao.SelectedItem != null)
             {
@@ -62,6 +61,7 @@ namespace cantina
                 }
 
                 pedidoSelecionado.Status = Status.Entregue;
+                PersistenciaPedido.saveToFile();
                 listentrega.Items.Insert(0, listbalcao.SelectedItem);
 
                 listbalcao.Items.RemoveAt(listbalcao.SelectedIndex);
@@ -69,7 +69,12 @@ namespace cantina
             else
             {
                 MessageBox.Show("Selecione um item para entregar.");
+                return;
             }
+
+            TelaChamada telaChamada = new TelaChamada();
+            telaChamada.chamado (pedidoSelecionado.Nome_cliente);
+            telaChamada.ShowDialog();
         }
 
         private void btnVoltar_Click(object sender, EventArgs e)
