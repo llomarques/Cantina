@@ -72,6 +72,7 @@
             listentrega.Name = "listentrega";
             listentrega.Size = new Size(380, 208);
             listentrega.TabIndex = 2;
+            listentrega.SelectedIndexChanged += listentrega_SelectedIndexChanged;
             // 
             // label2
             // 

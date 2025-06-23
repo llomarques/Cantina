@@ -19,7 +19,7 @@ namespace cantina
             }
            
             Quantidade += quantidade;
-
+            
         }
 
         public void RemoverQuantidade(int quantidade)

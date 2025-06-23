@@ -38,34 +38,52 @@ namespace cantina
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
             int quant = (int)numericQuant.Value;
-            Estoque estoque = new Estoque();
-
-            //if (listBox1.SelectedItem != null && numericQuant.Value > 0 && quant <= estoque.Quantidade &&  estoque != null)
+            //Estoque estoque = new Estoque();
             if (listBox1.SelectedItem != null && numericQuant.Value > 0)
+            //if (listBox1.SelectedItem != null && numericQuant.Value > 0)
             {
 
                 Produto produtoSelecionado = (Produto)listBox1.SelectedItem;
-                Produto vendaFeita = new Produto(produtoSelecionado.Descricao, produtoSelecionado.Valor, produtoSelecionado.Chapa);
-                vendaFeita.Quantidade = (int)numericQuant.Value;
-                listBox2.Items.Add(vendaFeita);
-                extrato.Add(vendaFeita);
-                total += produtoSelecionado.Valor * quant;
-                lblTotal.Text = $" TOTAL: R$ {total:F2}";
-                listBox1.SelectedIndex = -1;
-                numericQuant.Value = 0;
-                estoque.RemoverQuantidade(quant);
-
-
-
-
+                foreach (Estoque estoque in PersistenciaEstoque.ListaEstoque)
+                {
+                    if (estoque.produto.Descricao == produtoSelecionado.Descricao)
+                    {
+                        if (quant > estoque.Quantidade)
+                        {
+                            MessageBox.Show("Quantidade insuficiente no estoque!");
+                            return;
+                        }
+                        else
+                        {
+                            Produto vendaFeita = new Produto(produtoSelecionado.Descricao, produtoSelecionado.Valor, produtoSelecionado.Chapa);
+                            vendaFeita.Quantidade = (int)numericQuant.Value;
+                            listBox2.Items.Add(vendaFeita);
+                            extrato.Add(vendaFeita);
+                            total += produtoSelecionado.Valor * quant;
+                            lblTotal.Text = $" TOTAL: R$ {total:F2}";
+                            listBox1.SelectedIndex = -1;
+                            numericQuant.Value = 0;
+                            estoque.Quantidade -= quant;
+                            PersistenciaEstoque.saveToFile();
+                        }
+                    }
+                }
+                //Produto vendaFeita = new Produto(produtoSelecionado.Descricao, produtoSelecionado.Valor, produtoSelecionado.Chapa);
+                //vendaFeita.Quantidade = (int)numericQuant.Value;
+                //listBox2.Items.Add(vendaFeita);
+                //extrato.Add(vendaFeita);
+                //total += produtoSelecionado.Valor * quant;
+                //lblTotal.Text = $" TOTAL: R$ {total:F2}";
+                //listBox1.SelectedIndex = -1;
+                //numericQuant.Value = 0;
             }
-            //else if (quant > estoque.Quantidade)
+            //else (//quant < estoque.Quantidade)
             //{
             //    MessageBox.Show("Quantidade insuficiente no estoque!");
             //}
             else if (numericQuant.Value <= 0)
             {
-                MessageBox.Show("Indique uma quantidade válida!");
+                // MessageBox.Show("Indique uma quantidade válida!");
                 numericQuant.Value = 1;
 
             }
@@ -87,6 +105,15 @@ namespace cantina
                 total -= produtoSelecionado.Valor * produtoSelecionado.Quantidade;
                 lblTotal.Text = $" TOTAL: R$ {total:F2}";
                 numericQuant.Value = 0;
+                foreach (Estoque estoque in PersistenciaEstoque.ListaEstoque)
+                {
+                    if (estoque.produto.Descricao == produtoSelecionado.Descricao)
+                    {
+                        estoque.Quantidade += produtoSelecionado.Quantidade;
+                        PersistenciaEstoque.saveToFile();
+                        break;
+                    }
+                }
 
 
             }
@@ -188,6 +215,8 @@ namespace cantina
             //listBox1.Items.Add(new Produto("Hambúrguer com Queijo", 9.00, true));
             //listBox1.Items.Add(new Produto("X-tudo", 12.00, true));
             //listBox1.Items.Add(new Produto("Água Mineral (500ml)", 2.50, false));
+            PersistenciaPedido.LoadFromFile();
+            PersistenciaEstoque.LoadFromFile();
 
             foreach (var produto in PersistenciaProduto.ProdutosEstoque)
             {
@@ -208,6 +237,8 @@ namespace cantina
             button2.FlatAppearance.BorderSize = 3;
             btnCozinha.FlatStyle = FlatStyle.Flat;
             btnCozinha.FlatAppearance.BorderSize = 3;
+            btnEstoque.FlatStyle = FlatStyle.Flat;
+            btnEstoque.FlatAppearance.BorderSize = 3;
 
 
 
@@ -291,6 +322,12 @@ namespace cantina
         {
             PersistenciaPedido.LoadFromFile();
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            TelaEstoque telaEstoque = new TelaEstoque();
+            telaEstoque.Show();
         }
     }
 }

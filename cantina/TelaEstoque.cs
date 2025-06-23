@@ -29,6 +29,9 @@ namespace cantina
 
         private void TelaEstoque_Load(object sender, EventArgs e)
         {
+
+            PersistenciaEstoque.LoadFromFile();
+            PersistenciaPedido.LoadFromFile();
             if (PersistenciaEstoque.ListaEstoque.Count == 0)
             {
                 PersistenciaEstoque.IniciarEstoque();
@@ -54,7 +57,11 @@ namespace cantina
                 Estoque estoque = (Estoque)listEstoque.SelectedItem;
                 estoque.AdicionarQuantidade((int)numericUpDown1.Value);
 
+                PersistenciaEstoque.saveToFile();
+                PersistenciaPedido.saveToFile();
+
                 listEstoque.SelectedIndex = -1;
+                numericUpDown1.Value = 0;
                 Atualizarlista();
 
             }
@@ -67,12 +74,19 @@ namespace cantina
                 Estoque estoque = (Estoque)listEstoque.SelectedItem;
                 estoque.RemoverQuantidade((int)numericUpDown1.Value);
 
+                PersistenciaPedido.saveToFile();
+                PersistenciaEstoque.saveToFile();
+
                 listEstoque.SelectedIndex = -1;
+                numericUpDown1.Value = 0;
                 Atualizarlista();
             }
         }
 
-        
-        
+        private void button1_Click(object sender, EventArgs e)
+        {
+            TelaVendas telaVendas = new TelaVendas();
+            telaVendas.Show();
+        }
     }
 }

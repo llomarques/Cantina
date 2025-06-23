@@ -56,6 +56,7 @@
             comboBox1 = new ComboBox();
             checkBox1 = new CheckBox();
             btnCozinha = new Button();
+            btnEstoque = new Button();
             ((System.ComponentModel.ISupportInitialize)numericQuant).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -259,7 +260,7 @@
             button2.BackColor = Color.FromArgb(17, 25, 12);
             button2.Font = new Font("Inter Medium", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button2.ForeColor = Color.FromArgb(230, 255, 0);
-            button2.Location = new Point(689, 480);
+            button2.Location = new Point(703, 481);
             button2.Name = "button2";
             button2.Size = new Size(86, 35);
             button2.TabIndex = 23;
@@ -311,6 +312,19 @@
             btnCozinha.UseVisualStyleBackColor = false;
             btnCozinha.Click += btnCozinha_Click;
             // 
+            // btnEstoque
+            // 
+            btnEstoque.BackColor = Color.FromArgb(17, 25, 12);
+            btnEstoque.Font = new Font("Inter Medium", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnEstoque.ForeColor = Color.FromArgb(230, 255, 0);
+            btnEstoque.Location = new Point(611, 482);
+            btnEstoque.Name = "btnEstoque";
+            btnEstoque.Size = new Size(86, 35);
+            btnEstoque.TabIndex = 29;
+            btnEstoque.Text = "Estoque";
+            btnEstoque.UseVisualStyleBackColor = false;
+            btnEstoque.Click += button1_Click;
+            // 
             // TelaVendas
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -318,6 +332,7 @@
             BackColor = Color.FromArgb(243, 241, 238);
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(965, 559);
+            Controls.Add(btnEstoque);
             Controls.Add(btnCozinha);
             Controls.Add(checkBox1);
             Controls.Add(comboBox1);
@@ -375,5 +390,6 @@
         private ComboBox comboBox1;
         private CheckBox checkBox1;
         private Button btnCozinha;
+        private Button btnEstoque;
     }
 }

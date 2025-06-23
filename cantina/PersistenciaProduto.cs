@@ -17,7 +17,7 @@ namespace cantina
              new Produto("Pão de Queijo", 3.50, false),
              new Produto("Hambúrguer Simples", 8.00, true),
              new Produto("Hambúrguer com Queijo", 9.00, true),
-             new Produto("X-tudo", 12.00, true),
+             new Produto("X-tudo", 12.00, true), 
              new Produto("Água Mineral (500ml)", 2.50, false)
 
     };
